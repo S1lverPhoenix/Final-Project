@@ -6,6 +6,15 @@ import javax.imageio.ImageIO;
 
 public class GroceryItem {
     private static Image items;
-    File f = new File("images/shelf.jpeg");
-    items = ImageIO.read(f);
+
+    private static void openItems() {
+		if(items==null) {
+			try {
+				File f = new File("images/shelf.jpeg");
+				items = ImageIO.read(f);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
