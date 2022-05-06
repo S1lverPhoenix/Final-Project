@@ -5,16 +5,9 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class GroceryItem {
-    private static Image items;
-
-    private static void openItems() {
-		if(items==null) {
-			try {
-				File f = new File("images/shelf.jpeg");
-				items = ImageIO.read(f);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+    private Image myItem;
+    private String name;
+    private int price;
+    
+    
 }
