@@ -10,7 +10,7 @@ public class GroceryList {
     private static void openItems() {
 		if(items==null) {
 			try {
-				File f = new File("images/shelf.jpeg");
+				File f = new File("images/grocery.jpeg");
 				items = ImageIO.read(f);
 			} catch (IOException e) {
 				e.printStackTrace();
