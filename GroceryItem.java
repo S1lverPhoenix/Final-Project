@@ -20,5 +20,9 @@ public class GroceryItem {
     public String getName(){
         return name;
     }
+
+    public void addPrice() {
+        
+    }
     
 }
