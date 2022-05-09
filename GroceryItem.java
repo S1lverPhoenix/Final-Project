@@ -24,5 +24,8 @@ public class GroceryItem {
     public void addPrice(double d) {
         price = d;
     }
+
+    public void draw(Graphics g) {
+    }
     
 }
