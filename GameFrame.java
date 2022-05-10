@@ -56,6 +56,8 @@ public class GameFrame extends JFrame {
 		timer.start();
 		this.setVisible(true);
 		panel.requestFocusInWindow();
-		//addKeys(panel);
+		addKeys(panel);
 	}
+
+	
 }
