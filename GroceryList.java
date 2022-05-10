@@ -35,8 +35,7 @@ public class GroceryList {
 			groceryItems.add(new GroceryItem(openImageFromSpriteSheet(widthCount, heightCount, SQUARE_WIDTH, SQUARE_HEIGHT), names[x]));
 			if(groceryItems.get(x).getName().equals("Null")){
 				groceryItems.remove(x);
-		}
-		
+			}
 		}
 	}
 }
