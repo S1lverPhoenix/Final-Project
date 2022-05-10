@@ -4,8 +4,7 @@ import java.awt.event.ActionEvent;
 
 public class Game {
 
-	private ArrayList<GroceryItem> objects = new ArrayList<>();
-
+	private ArrayList<GroceryItem> items = new ArrayList<>();
     public Game(){
         
     }
@@ -39,7 +38,7 @@ public class Game {
 	 */
     public void drawTheGame(Graphics g) {
 		//snake.draw(g);
-		for(GroceryItem go:this.objects) {
+		for(GroceryItem go:items) {
 			go.draw(g);
 		}
 
