@@ -11,7 +11,7 @@ public class GroceryList {
 	private static final int SQUARE_HEIGHT = 100;
 	private static final int SQUARE_WIDTH = 100;
     private static ArrayList<GroceryItem> groceryItems;
-	private static String[] names = {"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter", "Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes", "Macaroni", "Apples", "Null", "Peanuts", "Milk", "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant", "Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}
+	private static String[] names = {"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter", "Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes", "Macaroni", "Apples", "Null", "Peanuts", "Milk", "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant", "Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"};
     
 	private static void openImage() {
 		if(items==null) {
