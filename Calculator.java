@@ -1,10 +1,9 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.util.Scanner;
-import java.awt.event.ActionListener;
+//import java.util.Scanner;
 
-public class Calculator extends ActionListener{
+public class Calculator extends JFrame implements ActionListener{
     JFrame frame;
     JTextField textfield;
     JButton[] numberButtons= new JButton[10];
@@ -50,43 +49,13 @@ public class Calculator extends ActionListener{
         numberButtons[6]=delButton;
         numberButtons[7]=clearButton;
 
-        
-
         frame.add(textfield);
         frame.setVisible(true);
     }
 
-    public double setValue(){
-        return value;
-    }
-    public double calculated(){
-        Scanner myObj= new Scanner(System.in);
-        num1=myObj.nextDouble();
-        num2=myObj.nextDouble();
-            char x= myObj.next().charAt(0);
-            switch(x){
-                case '+':
-                    value=num1+num2;
-                    break;
-            
-                case '-':
-                    value=Math.abs(num1-num2);
-                    break;
-
-                case '*':
-                    value=num1*num2;
-                    break;
-
-                case'/':
-                    value=num1/num2;
-                    break;
-            
-            default:
-                System.out.println("Incorrect value added in");
-                break;
-            }
-
-        return value;
-    }
-    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+        
+    }    
 }

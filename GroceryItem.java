@@ -21,16 +21,14 @@ public class GroceryItem {
         return name;
     }
 
-<<<<<<< HEAD
 
-=======
     public void addPrice(double d) {
         price = d;
     }
 
     public void draw(Graphics g) {
     }
->>>>>>> 6694db76f821195e7e22105737e5666c9f67b4a1
-    
-}
+
+    }
+
 
