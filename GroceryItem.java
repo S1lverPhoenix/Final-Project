@@ -7,7 +7,7 @@ import javax.imageio.ImageIO;
 public class GroceryItem {
     private Image image;
     private String name;
-    private int price;
+    private double price;
     private boolean show;
     private int xLoc;
     private int yLoc;
@@ -21,6 +21,15 @@ public class GroceryItem {
         return name;
     }
 
+<<<<<<< HEAD
 
+=======
+    public void addPrice(double d) {
+        price = d;
+    }
+
+    public void draw(Graphics g) {
+    }
+>>>>>>> 6694db76f821195e7e22105737e5666c9f67b4a1
     
 }
