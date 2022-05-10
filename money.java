@@ -1,4 +1,3 @@
-public class money {
-    
+public class Money{
     
 }
