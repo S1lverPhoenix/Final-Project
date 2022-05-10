@@ -4,14 +4,16 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeListener;
+import java.io.File;
 import java.util.ArrayList;
-
+import java.awt.Image;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class GameFrame extends JFrame {
 	private int prints = 0;
 	private Game game = new Game();
-	
+	private Image img;
 
 	// starting dimensions of window (pixels)
 	public static final int WIDTH = 500, HEIGHT = 300, REFRESH = 40;
@@ -21,6 +23,7 @@ public class GameFrame extends JFrame {
 		@Override
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
+			g.drawImage(img, 0,0,null);
 			game.drawTheGame(g);
 			// tried to get rid of some stuttering, changing REFRESH 
 			// improved this issue
@@ -42,6 +45,13 @@ public class GameFrame extends JFrame {
 	 * view is refreshed.  
 	 */
 	private void setUpStuff() {
+		System.out.println("Setting up");
+		try {
+            File f = new File("Images.png/shelf.jpeg");
+            img = ImageIO.read(f);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		this.add(panel);
@@ -56,6 +66,27 @@ public class GameFrame extends JFrame {
 		timer.start();
 		this.setVisible(true);
 		panel.requestFocusInWindow();
+
 		//addKeys(panel);
 	}
+
+	// private void start() {
+    //     try {
+    //         File f = new File("images/backgrounds/shelf.jpeg");
+    //         img = ImageIO.read(f);
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //     }
+        
+        panel = new JPanel() {
+            @Override 
+            public void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(img, 0,0,null);
+                //grid.draw(g);
+            }
+        };
+
+
+}
 }
