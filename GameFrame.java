@@ -59,5 +59,8 @@ public class GameFrame extends JFrame {
 		addKeys(panel);
 	}
 
+	private void addKeys(JPanel panel2) {
+	}
+
 	
 }
