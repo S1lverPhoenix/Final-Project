@@ -27,6 +27,10 @@ public class GroceryItem {
 
     public void draw(Graphics g) {
     }
+
+    public Image getImage(){
+        return image;
+    }
     
 }
 
