@@ -7,5 +7,6 @@ import java.io.IOException;
 public class Money {
     private Image bill;
     private int amount;
+    
 
 }
