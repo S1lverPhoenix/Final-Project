@@ -1,10 +1,13 @@
 import java.util.ArrayList;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
+import java.awt.Image;
 
 public class Game {
 
 	private ArrayList<GroceryItem> items = new ArrayList<>();
+	//private Image img = Toolkit.getDefaultTookkit().getImage("shelf.jpeg");
     public Game(){
         
     }
