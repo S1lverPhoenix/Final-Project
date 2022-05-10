@@ -22,18 +22,20 @@ public class GroceryItem {
     }
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
     public void addPrice() {
 =======
 <<<<<<< HEAD
+>>>>>>> c5d3553e1a10ca02fc21558c2d67de36cf00406a
 
-=======
     public void addPrice(double d) {
         price = d;
     }
 >>>>>>> 7a6a41764634352f63716928246e0b05ea01e1ab
 
     }
->>>>>>> 6694db76f821195e7e22105737e5666c9f67b4a1
-    
-}
+
+    }
+
 
