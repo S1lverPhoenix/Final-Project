@@ -21,7 +21,7 @@ public class Game {
 	 * or check to see if the turn is over or...
 	 */
 	public void updateGame() {
-    System.out.println("Stuff Happening!");
+    //System.out.println("Stuff Happening!");
 		
 
 	}
