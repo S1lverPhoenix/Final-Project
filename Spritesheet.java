@@ -2,7 +2,7 @@ import java.awt.image.BufferedImage;
 public class Spritesheet {
 
     public BufferedImage spriteSheet;
-    public SpriteSheet(BufferedImage b){
+    public Spritesheet(BufferedImage b){
         this.spriteSheet =b;     
     }
 
