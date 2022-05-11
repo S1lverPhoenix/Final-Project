@@ -5,8 +5,8 @@ public class SwingGraphicsGame {
 	    public static void main(String[] args) {
 			Calculator calc = new Calculator();
 			GroceryList items = new GroceryList();
-			items.getItems().get(1).getImage().drawImage();
 			items.makeGroceryList();
+			items.getItems().get(1).draw();
 	        SwingUtilities.invokeLater(new Runnable() {
 	            @Override
 	            public void run() {

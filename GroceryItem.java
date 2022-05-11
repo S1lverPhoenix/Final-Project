@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import java.net.URL;
 
 public class GroceryItem {
     private Image image;
@@ -25,7 +26,9 @@ public class GroceryItem {
         price = d;
     }
 
-    public void draw(Graphics g) {
+    public void draw(String path) throws IOException{
+        URL url = this.getClass().getResource(path);
+        java.awt.image.BufferedImage img = ImageIO.read(url);
     }
 
     public Image getImage(){

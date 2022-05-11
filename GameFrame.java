@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeListener;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,7 +14,7 @@ import javax.swing.*;
 
 
 public class GameFrame extends JFrame {
-	private Image sprite;
+	private BufferedImage sprite;
 
 	private int prints = 0;
 	private Game game = new Game();
@@ -32,7 +31,7 @@ public class GameFrame extends JFrame {
 		catch(IOException e){
 			Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
 		}
-		Spritesheet ss = new Spritesheet(spriteSheet);
+		SpriteSheet ss = new SpriteSheet(spriteSheet);
 		sprite= ss.getSprite(0,0, 20, 40);
 	}
 	// where the game objects are displayed
