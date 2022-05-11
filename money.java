@@ -32,15 +32,9 @@ public class Money extends JFrame implements ActionListener {
         Icon hundred = new ImageIcon("images/money/one.jpeg");
         hundredButton= new JButton(hundred);
 
+        
     }
 
-    public int getValue() {
-        return value;
-    }
-
-    public void draw (Graphics g) {
-
-    }
     @Override
     public void actionPerformed(ActionEvent e) {
 
