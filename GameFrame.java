@@ -6,18 +6,34 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.awt.Image;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+
 public class GameFrame extends JFrame {
+	private BufferedImage sprite;
+
 	private int prints = 0;
 	private Game game = new Game();
 	private Image img;
 
 	// starting dimensions of window (pixels)
 	public static final int WIDTH = 500, HEIGHT = 300, REFRESH = 40;
-	
+	private void init(){
+		BufferedImage loader = new BufferedImage();
+		BufferedImage spriteSheet = null; 
+		try{
+			spriteSheet = loader.loadImg("food.jpg");
+		} 
+		catch(IOException e){
+			Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		SpriteSheet ss = new SpriteSheet(spriteSheet);
+		sprite= ss.getSprite(0,0, 20, 40);
+	}
 	// where the game objects are displayed
 	private JPanel panel = new JPanel() {
 		@Override
@@ -68,7 +84,8 @@ public class GameFrame extends JFrame {
 		panel.requestFocusInWindow();
 
 		//addKeys(panel);
-
+	
+	
 	// private void start() {
     //     try {
     //         File f = new File("images/backgrounds/shelf.jpeg");
@@ -82,6 +99,8 @@ public class GameFrame extends JFrame {
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 g.drawImage(img, 0,0,null);
+				g.drawImage(sprite, 100,100, null);
+				repaint();
                 //grid.draw(g);
             }
         };
