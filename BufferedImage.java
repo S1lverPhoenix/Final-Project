@@ -1,15 +1,15 @@
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
-
+import java.nio.Buffer;
+import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
-public class BufferedImage {
+public class GroceryImage {
 
     public BufferedImage loadImg(String path) throws IOException{
         
         URL url = this.getClass().getResource(path);
-        BufferedImage img = ImageIO.read(url);
+        java.awt.image.BufferedImage img = ImageIO.read(url);
         return img;
     }
 }

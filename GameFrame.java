@@ -15,7 +15,7 @@ import javax.swing.*;
 
 
 public class GameFrame extends JFrame {
-	private BufferedImage sprite;
+	private Image sprite;
 
 	private int prints = 0;
 	private Game game = new Game();
