@@ -11,7 +11,7 @@ public class GroceryList {
 	private static final int SQUARE_HEIGHT = 100;
 	private static final int SQUARE_WIDTH = 100;
     private static ArrayList<GroceryItem> groceryItems;
-	private static String[] names = {"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter", "Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes", "Macaroni", "Apples", "Null", "Peanuts", "Milk", "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant", "Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"};
+	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Null", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
     
 	public ArrayList<GroceryItem> getItems(){
 		return groceryItems;
@@ -33,12 +33,14 @@ public class GroceryList {
 		return ((BufferedImage)items).getSubimage(x,y,w,h).getScaledInstance(SQUARE_WIDTH, SQUARE_HEIGHT, BufferedImage.SCALE_SMOOTH);
 	}
 	public void makeGroceryList(){
-		int widthCount = SQUARE_WIDTH;
-		int heightCount = SQUARE_HEIGHT;
+		int count = 0;
 		for(int x = 0; x<names.length; x++){
-			groceryItems.add(new GroceryItem(openImageFromSpriteSheet(widthCount, heightCount, SQUARE_WIDTH, SQUARE_HEIGHT), names[x]));
-			if(groceryItems.get(x).getName().equals("Null")){
-				groceryItems.remove(x);
+			for(int y = 0; y<names[0].length; y++){
+				groceryItems.add(new GroceryItem(names[x][y]));
+				if(groceryItems.get(count).getName().equals("Null")){
+					groceryItems.remove(count);
+				}
+				count++;
 			}
 		}
 	}

@@ -12,9 +12,9 @@ public class GroceryItem {
     private boolean show;
     private int xLoc;
     private int yLoc;
+	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Null", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
 
-    public GroceryItem(Image i, String s){
-        image = i;
+    public GroceryItem(String s){
         name = s;
     }
 
@@ -26,9 +26,20 @@ public class GroceryItem {
         price = d;
     }
 
-    public void draw(String path) throws IOException{
-        URL url = this.getClass().getResource(path);
-        java.awt.image.BufferedImage img = ImageIO.read(url);
+    // public void draw(String path) throws IOException{
+    //     URL url = this.getClass().getResource(path);
+    //     java.awt.image.BufferedImage img = ImageIO.read(url);
+    // }
+
+    public void draw(){
+
+        for(int x = 0; x<names.length; x++){
+            for(int y = 0; y<names[0].length; y++){
+                if(name.equals(names[x][y])){
+                    
+                }
+            }
+        }
     }
 
     public Image getImage(){
