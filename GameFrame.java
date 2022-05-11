@@ -68,7 +68,6 @@ public class GameFrame extends JFrame {
 		panel.requestFocusInWindow();
 
 		//addKeys(panel);
-	}
 
 	// private void start() {
     //     try {
