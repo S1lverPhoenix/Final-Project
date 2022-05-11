@@ -9,8 +9,7 @@ public class Money {
     private int value;
 
     public Money(Image bill, int value) {
-        this.bill = b;
-        this.value = val;
+        
     }
 
     public int getValue() {
