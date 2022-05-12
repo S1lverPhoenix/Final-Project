@@ -60,5 +60,23 @@ public class Money extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-    } 
+        if(e.getSource()==oneButton){
+            System.out.println("One dollar has been paid!");
+        }
+        if(e.getSource()==fiveButton){
+            System.out.println("Five dollars have been paid!");
+        }
+        if(e.getSource()==tenButton){
+            System.out.println("Ten dollars have been paid!");
+        }
+        if(e.getSource()==twentyButton){
+            System.out.println("Twenty dollars have been paid!");
+        }
+        if(e.getSource()==fiftyButton){
+            System.out.println("Fifty dollars have been paid!");
+        }
+        if(e.getSource()==hundredButton){
+            System.out.println("A hundred dollars have been paid!");
+        }
+    }
 }
