@@ -3,7 +3,7 @@ import javax.swing.*;
 public class SwingGraphicsGame {
 
 	    public static void main(String[] args) {
-			Calculator calc = new Calculator();
+			//Calculator calc = new Calculator();
 			GroceryList items = new GroceryList();
 			items.makeGroceryList();
 			items.getItems().get(1).draw();

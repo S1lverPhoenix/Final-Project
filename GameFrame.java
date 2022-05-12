@@ -15,7 +15,6 @@ import javax.swing.*;
 
 public class GameFrame extends JFrame {
 	private BufferedImage sprite;
-
 	private int prints = 0;
 	private Game game = new Game();
 	private Image img;
@@ -25,14 +24,14 @@ public class GameFrame extends JFrame {
 	private void init(){
 		BufferedImage loader = new BufferedImage();
 		BufferedImage spriteSheet = null; 
-		try{
-			spriteSheet = loader.loadImg("food.jpg");
-		} 
-		catch(IOException e){
-			Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-		}
-		SpriteSheet ss = new SpriteSheet(spriteSheet);
-		sprite= ss.getSprite(0,0, 20, 40);
+	// 	try{
+	// 		spriteSheet = loader.loadImg("food.jpg");
+	// 	} 
+	// 	catch(IOException e){
+	// 		Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+	// 	}
+	// 	SpriteSheet ss = new SpriteSheet(spriteSheet);
+	// 	sprite= ss.getSprite(0,0, 20, 40);
 	}
 	// where the game objects are displayed
 	private JPanel panel = new JPanel() {
@@ -99,7 +98,7 @@ public class GameFrame extends JFrame {
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 g.drawImage(img, 0,0,null);
-				g.drawImage(sprite, 100,100, null);
+				//g.drawImage(sprite, 100,100, null);
 				repaint();
                 //grid.draw(g);
             }
