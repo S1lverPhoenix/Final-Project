@@ -14,9 +14,9 @@ public class Calculator extends JFrame implements ActionListener{
 
     Font myfont=new Font("Ink Free", Font.BOLD, 30);
 
-    double num1=0;
-    double num2=0;
-    double value=0;
+    protected double num1=0;
+    protected double num2=0;
+    protected double value=0;
 
     char operator;
 
@@ -57,7 +57,7 @@ public class Calculator extends JFrame implements ActionListener{
             numberButtons[i].setFocusable(false);
 
         }
-
+        //numbers
         for(int i=0; i<10; i++){
             x[i]= new JButton(String.valueOf(i));
             x[i].addActionListener(this);
@@ -182,8 +182,8 @@ public class Calculator extends JFrame implements ActionListener{
             textfield.setText(String.valueOf(value));
             num1=value;
         }
-        
-        
-
     }    
+    public double getTotal(){
+        return value;
+    }
 }
