@@ -6,7 +6,7 @@ import javax.imageio.ImageIO;
 import java.net.URL;
 
 public class GroceryItem {
-    private Image items;
+    private static Image items;
     private String name;
     private double price;
     private boolean show;
@@ -36,7 +36,7 @@ public class GroceryItem {
     
 
     public Image getImage(){
-        return image;
+        return items;
     }
     
     private static void openImage() {
@@ -52,16 +52,21 @@ public class GroceryItem {
     }
 	protected static Image openImageFromSpriteSheet(int x, int y, int w, int h) {
 		openImage();
-		return ((BufferedImage)items).getSubimage(x,y,w,h).getScaledInstance(SQUARE_WIDTH, SQUARE_HEIGHT, BufferedImage.SCALE_SMOOTH);
+		return (BufferedImage)((BufferedImage)items).getSubimage(x,y,w,h).getScaledInstance(SQUARE_WIDTH, SQUARE_HEIGHT, BufferedImage.SCALE_SMOOTH);
 	}
 
     public void draw(){
-
         for(int x = 0; x<names.length; x++){
             for(int y = 0; y<names[0].length; y++){
                 if(name.equals(names[x][y])){
-                    openImageFromSpriteSheet(x*SQUARE_HEIGHT, y*SQUARE_WIDTH, SQUARE_WIDTH, SQUARE_HEIGHT);
-                    
+                    BufferedImage itemImage = (BufferedImage) openImageFromSpriteSheet(x*SQUARE_HEIGHT, y*SQUARE_WIDTH, SQUARE_WIDTH, SQUARE_HEIGHT);
+                    try {
+                        BufferedImage main = ImageIO.read(new File("images/grocery.jpeg"));
+                        Graphics g = main.getGraphics();
+                        g.drawImage(itemImage, x*SQUARE_HEIGHT, y*SQUARE_WIDTH, null);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
