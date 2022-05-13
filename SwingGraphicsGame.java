@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 import javax.swing.*;
 
 public class SwingGraphicsGame {
@@ -11,7 +13,8 @@ public class SwingGraphicsGame {
 	            public void run() {
 	                GameFrame wnd = new GameFrame("Dollar Up!");
 	                wnd.setVisible(true);
-					items.getItems().get(1).draw();
+						items.getItems().get(1).draw();
+					
 
 	            }
 	        });

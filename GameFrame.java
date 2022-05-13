@@ -65,7 +65,7 @@ public class GameFrame extends JFrame {
 	private void setUpStuff() {
 		System.out.println("Setting up");
 		try {
-            File f = new File("Images.png/shelf.jpeg");
+            File f = new File("Images/shelf.jpeg");
             img = ImageIO.read(f);
         } catch (Exception e) {
             e.printStackTrace();
