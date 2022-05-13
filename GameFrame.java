@@ -11,19 +11,22 @@ import java.util.logging.Logger;
 import java.awt.Image;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.JPanel;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 
 public class GameFrame extends JFrame {
-	private BufferedImage sprite;
+	// private BufferedImage sprite;
 	private int prints = 0;
 	private Game game = new Game();
 	private Image img;
 
 	// starting dimensions of window (pixels)
 	public static final int WIDTH = 500, HEIGHT = 300, REFRESH = 40;
-	private void init(){
-		BufferedImage loader = new BufferedImage();
-		BufferedImage spriteSheet = null; 
+	// private void init(){
+	// 	BufferedImage loader = new BufferedImage();
+	// 	BufferedImage spriteSheet = null; 
 	// 	try{
 	// 		spriteSheet = loader.loadImg("food.jpg");
 	// 	} 
@@ -32,7 +35,7 @@ public class GameFrame extends JFrame {
 	// 	}
 	// 	SpriteSheet ss = new SpriteSheet(spriteSheet);
 	// 	sprite= ss.getSprite(0,0, 20, 40);
-	}
+	
 	// where the game objects are displayed
 	private JPanel panel = new JPanel() {
 		@Override
@@ -103,7 +106,17 @@ public class GameFrame extends JFrame {
                 //grid.draw(g);
             }
         };
+	// panel.addMouseListener(new MouseListener()){
+	// 	public void mousePressed(MouseEvent me) {
+	// 		clickedAt(me);
+	// 	}
+	// });
 
+	// protected void clickedAt(MouseEvent me) {
+	// 	System.out.println("You just clicked "+me);	
+	// 	game.justClicked(me);
+	// 	panel.repaint();
+	// }
 
 }
 }

@@ -33,7 +33,6 @@ public class GroceryItem {
     //     java.awt.image.BufferedImage img = ImageIO.read(url);
     // }
 
-    
 
     public Image getImage(){
         return items;
@@ -42,7 +41,7 @@ public class GroceryItem {
     private static void openImage() {
 		if(items==null) {
 			try {
-				File f = new File("images/grocery.jpeg");
+				File f = new File("Images/grocery.png");
 				items = ImageIO.read(f);
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -61,7 +60,7 @@ public class GroceryItem {
                 if(name.equals(names[x][y])){
                     BufferedImage itemImage = (BufferedImage) openImageFromSpriteSheet(x*SQUARE_HEIGHT, y*SQUARE_WIDTH, SQUARE_WIDTH, SQUARE_HEIGHT);
                     try {
-                        BufferedImage main = ImageIO.read(new File("images/grocery.jpeg"));
+                        BufferedImage main = ImageIO.read(new File("Images/grocery.png"));
                         Graphics g = main.getGraphics();
                         g.drawImage(itemImage, x*SQUARE_HEIGHT, y*SQUARE_WIDTH, null);
                     } catch (IOException e) {

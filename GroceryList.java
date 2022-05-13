@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 public class GroceryList {
+	
     private static ArrayList<GroceryItem> groceryItems = new ArrayList<>();
 	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Null", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
     
@@ -19,11 +20,13 @@ public class GroceryList {
 		for(int x = 0; x<names.length; x++){
 			for(int y = 0; y<names[0].length; y++){
 				groceryItems.add(new GroceryItem(names[x][y]));
-				if(groceryItems.get(count).getName().equals("Null")){
+				if(groceryItems.get(count).equals("Null")){
 					groceryItems.remove(count);
 				}
 				count++;
 			}
 		}
 	}
+
+	
 }
