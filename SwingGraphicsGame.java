@@ -6,13 +6,13 @@ public class SwingGraphicsGame {
 			//Calculator calc = new Calculator();
 			GroceryList items = new GroceryList();
 			items.makeGroceryList();
-			items.getItems().get(1).draw();
 	        SwingUtilities.invokeLater(new Runnable() {
 	            @Override
 	            public void run() {
 	                GameFrame wnd = new GameFrame("Dollar Up!");
-	                
 	                wnd.setVisible(true);
+					items.getItems().get(1).draw();
+
 	            }
 	        });
 	    }
