@@ -78,12 +78,12 @@ public class GroceryItem {
 		return ((BufferedImage) items).getSubimage(x,y,w,h).getScaledInstance(SQUARE_WIDTH, SQUARE_HEIGHT, BufferedImage.SCALE_SMOOTH);
 	}
 
-    public void draw(){
+    public void draw() throws IOException{
         for(int x = 0; x<names.length; x++){
             for(int y = 0; y<names[0].length; y++){
                 if(name.equals(names[x][y])){
                     Image itemImage = openImageFromSpriteSheet(x*SQUARE_HEIGHT, y*SQUARE_WIDTH, SQUARE_WIDTH, SQUARE_HEIGHT);
-                       //BufferedImage main = ImageIO.read(new File("Images/grocery.png"));
+                       Image main = ImageIO.read(new File("Images/grocery.png"));
                         Graphics g = main.getGraphics();
                         g.drawImage(itemImage, x*SQUARE_HEIGHT, y*SQUARE_WIDTH, null);
                 }
