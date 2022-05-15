@@ -23,6 +23,9 @@ public class GameFrame extends JFrame {
 	private Image img;
 
 	// starting dimensions of window (pixels)
+	
+	//change dimensions to make it bigger to fit the count of the items of what the user clicked in the bottom:
+	//name, price, count of how many times each item is clicked
 	public static final int WIDTH = 500, HEIGHT = 300, REFRESH = 40;
 	// private void init(){
 	// 	BufferedImage loader = new BufferedImage();

@@ -79,4 +79,6 @@ public class Money extends JFrame implements ActionListener{
             System.out.println("A hundred dollars have been paid!");
         }
     }
+
+    
 }
