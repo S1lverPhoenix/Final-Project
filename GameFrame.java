@@ -21,6 +21,7 @@ public class GameFrame extends JFrame {
 	private int prints = 0;
 	private Game game = new Game();
 	private Image img;
+	private GroceryList items = new GroceryList();
 
 	// starting dimensions of window (pixels)
 	
@@ -46,6 +47,10 @@ public class GameFrame extends JFrame {
 			super.paintComponent(g);
 			g.drawImage(img, 0,0,null);
 			game.drawTheGame(g);
+			items.makeGroceryList();
+			for(GroceryItem gi:items.getItems()){
+				gi.draw(g);
+			}
 			// tried to get rid of some stuttering, changing REFRESH 
 			// improved this issue
 			panel.getToolkit().sync();
@@ -84,6 +89,7 @@ public class GameFrame extends JFrame {
 				panel.repaint();
 			}
 		});
+		fillItems();
 		timer.start();
 		this.setVisible(true);
 		panel.requestFocusInWindow();
@@ -122,4 +128,8 @@ public class GameFrame extends JFrame {
 	// }
 
 }
+
+	private void fillItems() {
+
+	}
 }

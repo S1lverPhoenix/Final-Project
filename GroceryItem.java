@@ -1,12 +1,13 @@
 import java.io.File;
 import java.awt.*;
+import java.awt.image.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.net.URL;
 
 public class GroceryItem {
-    private static Image items;
+    private  Image image;
     private String name;
     private double price;
     private boolean show;
@@ -18,6 +19,16 @@ public class GroceryItem {
 
     public GroceryItem(String s){
         name = s;
+        for(int x = 0; x<names.length; x++){
+            for(int y = 0; y<names[0].length; y++){
+                if(name.equals(names[x][y])){
+                    xLoc = x;
+                    yLoc = y;
+                 image =  openImageFromSpriteSheet(x*SQUARE_HEIGHT, y*SQUARE_WIDTH, SQUARE_WIDTH, SQUARE_HEIGHT);
+                }
+            }
+        }
+        //open an image here
     }
 
     public String getName(){
@@ -35,14 +46,14 @@ public class GroceryItem {
 
 
     public Image getImage(){
-        return items;
+        return image;
     }
     
-    private static void openImage() {
-		if(items==null) {
+    private  void openImage() {
+		if (image==null) {
 			try {
 				File f = new File("Images/grocery.png");
-				items = ImageIO.read(f);
+			   image = ImageIO.read(f);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -51,7 +62,7 @@ public class GroceryItem {
     }
 	// protected static BufferedImage openImageFromSpriteSheet(int x, int y, int w, int h) {
 	// 	openImage();
-	// 	Image temp = ((BufferedImage) items).getSubimage(x,y,w,h).getScaledInstance(SQUARE_WIDTH, SQUARE_HEIGHT, BufferedImage.SCALE_SMOOTH);
+	// 	Image temp = ((BufferedImage) Image).getSubimage(x,y,w,h).getScaledInstance(SQUARE_WIDTH, SQUARE_HEIGHT, BufferedImage.SCALE_SMOOTH);
     //     return (BufferedImage) temp;
 
 	// }
@@ -73,29 +84,23 @@ public class GroceryItem {
     //     }
     // }
 
-    protected static Image openImageFromSpriteSheet(int x, int y, int w, int h) {
+    protected  Image openImageFromSpriteSheet(int y, int x, int w, int h) {
 		openImage();
-		return ((BufferedImage) items).getSubimage(x,y,w,h).getScaledInstance(SQUARE_WIDTH, SQUARE_HEIGHT, BufferedImage.SCALE_SMOOTH);
+        BufferedImage temp = ((BufferedImage) image).getSubimage(x,y,w,h);
+       return temp.getScaledInstance(SQUARE_WIDTH, SQUARE_HEIGHT, BufferedImage.SCALE_SMOOTH);
+		//return temp;
 	}
 
-    public void draw(){
-        for(int x = 0; x<names.length; x++){
-            for(int y = 0; y<names[0].length; y++){
-                if(name.equals(names[x][y])){
-                    Image itemImage = openImageFromSpriteSheet(x*SQUARE_HEIGHT, y*SQUARE_WIDTH, SQUARE_WIDTH, SQUARE_HEIGHT);
-                       Image main = null;
-                    try {
-                        main = ImageIO.read(new File("Images/grocery.png"));
-                    } catch (IOException e) {
-                        e.printStackTrace();
+
+    public void draw(Graphics g){
+        int x = xLoc, y = yLoc;
+                    if (image != null){
+                        g.drawImage( image, x*SQUARE_HEIGHT, y*SQUARE_WIDTH, null);
                     }
-                    if(main != null){
-                        Graphics g = main.getGraphics();
-                        g.drawImage(itemImage, x*SQUARE_HEIGHT, y*SQUARE_WIDTH, null);
+                    else{
+                        System.out.println("Image "+image+" is null for "+name);
                     }
-                }
-            }
-        }
+               
     }
 }
 

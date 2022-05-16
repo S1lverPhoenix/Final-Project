@@ -42,7 +42,7 @@ public class Game {
     public void drawTheGame(Graphics g) {
 		//snake.draw(g);
 		for(GroceryItem go:items) {
-			go.draw();
+			go.draw(g);
 		}
 
 	}
