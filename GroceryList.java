@@ -10,7 +10,8 @@ public class GroceryList {
 	
     private static ArrayList<GroceryItem> groceryItems = new ArrayList<>();
 	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Null", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
-    
+    //show the price of each item too
+
 	public ArrayList<GroceryItem> getItems(){
 		return groceryItems;
 	}

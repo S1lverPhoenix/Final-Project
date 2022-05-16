@@ -98,4 +98,10 @@ public class Money extends JFrame implements ActionListener{
             return;
         }
     }
+<<<<<<< HEAD
 }
+=======
+
+    
+}
+>>>>>>> c002a8c0590d46eacb2bc29635d8f8700387cb36
