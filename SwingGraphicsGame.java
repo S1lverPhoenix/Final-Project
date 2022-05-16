@@ -6,6 +6,7 @@ public class SwingGraphicsGame {
 
 	    public static void main(String[] args) {
 			Calculator calc = new Calculator();
+			Money money= new Money();
 			GroceryList items = new GroceryList();
 			items.makeGroceryList();
 	        SwingUtilities.invokeLater(new Runnable() {
