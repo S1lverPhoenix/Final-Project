@@ -13,8 +13,8 @@ public class GroceryItem {
     private boolean show;
     private int xLoc;
     private int yLoc;
-    private static final int SQUARE_HEIGHT = 50;
-	private static final int SQUARE_WIDTH = 90;
+    private static final int SQUARE_HEIGHT = 57;
+	private static final int SQUARE_WIDTH = 85;
 	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Null", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
 
     public GroceryItem(String s){
@@ -94,12 +94,12 @@ public class GroceryItem {
 
     public void draw(Graphics g){
         int x = xLoc, y = yLoc;
-                    if (image != null){
-                        g.drawImage( image, x*SQUARE_HEIGHT, y*SQUARE_WIDTH, null);
-                    }
-                    else{
-                        System.out.println("Image "+image+" is null for "+name);
-                    }
+            if (image != null){
+                g.drawImage(image, x*SQUARE_HEIGHT, y*SQUARE_WIDTH, null);
+            }
+            else{
+                System.out.println("Image "+image+" is null for "+name);
+            }
                
     }
 }
