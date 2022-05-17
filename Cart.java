@@ -1,8 +1,6 @@
-
-
-public class AddToCart {
+public class Cart{
     
-    public AddToCart {
+    public Cart(){
 
     }
 }
