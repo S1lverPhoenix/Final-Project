@@ -27,6 +27,7 @@ public class GroceryList {
 				count++;
 			}
 		}
+		System.out.println(groceryItems);
 	}
 
 	
