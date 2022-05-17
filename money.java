@@ -98,4 +98,9 @@ public class Money extends JFrame implements ActionListener{
             return;
         }
     }
+<<<<<<< Updated upstream
 }
+=======
+
+}
+>>>>>>> Stashed changes

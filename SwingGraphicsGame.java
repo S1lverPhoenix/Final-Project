@@ -6,9 +6,15 @@ public class SwingGraphicsGame {
 
 	    public static void main(String[] args) {
 			Calculator calc = new Calculator();
+<<<<<<< Updated upstream
 			Money money= new Money();
 			//GroceryList items = new GroceryList();
 			//items.makeGroceryList();
+=======
+			//Money money= new Money();
+			GroceryList items = new GroceryList();
+			items.makeGroceryList();
+>>>>>>> Stashed changes
 	        SwingUtilities.invokeLater(new Runnable() {
 	            @Override
 	            public void run() {
