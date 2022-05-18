@@ -49,6 +49,7 @@ public class GameFrame extends JFrame {
 			game.drawTheGame(g);
 			items.makeGroceryList();
 			for(GroceryItem gi:items.getItems()){
+				System.out.println(gi);
 				gi.draw(g);
 			}
 			// tried to get rid of some stuttering, changing REFRESH 
