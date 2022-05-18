@@ -28,7 +28,7 @@ public class GroceryItem {
                 if(name.equals(n)){
                     xLoc = 2*x+2;
                     yLoc = y+1;
-                image = openImageFromSpriteSheet(y*SQUARE_HEIGHT+20, x*SQUARE_WIDTH+40, SQUARE_WIDTH, SQUARE_HEIGHT);
+                image = openImageFromSpriteSheet(y*SQUARE_HEIGHT+70, x*SQUARE_WIDTH+40, SQUARE_WIDTH, SQUARE_HEIGHT);
                 }
             }
         }
