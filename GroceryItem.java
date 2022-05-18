@@ -13,21 +13,21 @@ public class GroceryItem {
     private boolean show;
     private int xLoc;
     private int yLoc;
-    private static final int SQUARE_HEIGHT = 58;
-	private static final int SQUARE_WIDTH = 87;
+    private static final int SQUARE_HEIGHT = 59; //58
+	private static final int SQUARE_WIDTH = 87; //87
 	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Null", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
 
     public GroceryItem(String s){
         name = s;
-        for(int x = 0; x<names.length; x++){
-            System.out.println(x);
-            for(int y = 0; y<names[0].length; y++){
-                String n = names[x][y];
+        for(int r = 0; r<names.length; r++){
+            System.out.println(r);
+            for(int c = 0; c<names[0].length; c++){
+                String n = names[r][c];
                 System.out.println(n);
                 if(name.equals(n)){
-                    xLoc = 2*x+2;
-                    yLoc = y+1;
-                 image = openImageFromSpriteSheet(y*SQUARE_HEIGHT+20, x*SQUARE_WIDTH+40, SQUARE_WIDTH, SQUARE_HEIGHT);
+                    xLoc = r + 2;
+                    yLoc = c+ 1;
+                 image = openImageFromSpriteSheet(c*SQUARE_HEIGHT+70, r*SQUARE_WIDTH+40, SQUARE_WIDTH, SQUARE_HEIGHT);
                 }
             }
         }
