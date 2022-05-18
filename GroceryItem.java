@@ -22,12 +22,13 @@ public class GroceryItem {
         for(int x = 0; x<names.length; x++){
             System.out.println(x);
             for(int y = 0; y<names[0].length; y++){
+                System.out.println(y);
                 String n = names[x][y];
                 System.out.println(n);
                 if(name.equals(n)){
                     xLoc = 2*x+2;
                     yLoc = y+1;
-                 image = openImageFromSpriteSheet(y*SQUARE_HEIGHT+20, x*SQUARE_WIDTH+40, SQUARE_WIDTH, SQUARE_HEIGHT);
+                image = openImageFromSpriteSheet(y*SQUARE_HEIGHT+20, x*SQUARE_WIDTH+40, SQUARE_WIDTH, SQUARE_HEIGHT);
                 }
             }
         }
