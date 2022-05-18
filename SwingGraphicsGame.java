@@ -5,7 +5,7 @@ import javax.swing.*;
 public class SwingGraphicsGame {
 
 	    public static void main(String[] args) {
-			Calculator calc = new Calculator();
+			//Calculator calc = new Calculator();
 			Money money= new Money();
 	        SwingUtilities.invokeLater(new Runnable() {
 	            @Override

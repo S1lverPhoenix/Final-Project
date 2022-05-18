@@ -13,7 +13,7 @@ public class GroceryItem {
     private boolean show;
     private int xLoc;
     private int yLoc;
-    private static final int SQUARE_HEIGHT = 59; //58
+    private static final int SQUARE_HEIGHT = 59; //59
 	private static final int SQUARE_WIDTH = 87; //87
 	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Null", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
 
@@ -26,8 +26,8 @@ public class GroceryItem {
                 String n = names[x][y];
                 System.out.println(n);
                 if(name.equals(n)){
-                    xLoc = 2*x+2;
-                    yLoc = y+1;
+                    xLoc = 2*x+1;
+                    yLoc = y;
                 image = openImageFromSpriteSheet(y*SQUARE_HEIGHT+70, x*SQUARE_WIDTH+40, SQUARE_WIDTH, SQUARE_HEIGHT);
                 }
             }

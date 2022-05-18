@@ -13,7 +13,7 @@ public class Money extends JFrame implements ActionListener{
         frame=new JFrame("Money");
         frame.setResizable(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1450,560);
+        frame.setSize(1370,750);
         frame.setLayout(null);
 
         //setting dollar bills to buttons
@@ -53,7 +53,7 @@ public class Money extends JFrame implements ActionListener{
         twentyButton.setBounds(682,0,228,530);
         fiftyButton.setBounds(910,0,228,530);
         hundredButton.setBounds(1138,0,228,530);
-        amtTotal.setBounds(454,454,456,285);
+        amtTotal.setBounds(450,450,400,250);
 
         frame.add(oneButton);
         frame.add(fiveButton);
