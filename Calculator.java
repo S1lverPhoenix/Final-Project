@@ -12,7 +12,7 @@ public class Calculator extends JFrame implements ActionListener{
     JButton decButton, equButton, delButton,clearButton,negButton;
     JPanel p;
 
-    Font myfont=new Font("Ink Free", Font.BOLD, 30);
+    Font myfont=new Font("Serif", Font.BOLD, 30);
 
 
     private double num1=0;
@@ -58,6 +58,8 @@ public class Calculator extends JFrame implements ActionListener{
             numberButtons[i].addActionListener(this);
             numberButtons[i].setFont(myfont);
             numberButtons[i].setFocusable(false);
+            numberButtons[i].setBackground(Color.BLACK);
+            numberButtons[i].setForeground(Color.BLACK);
 
         }
         //numbers
@@ -66,6 +68,8 @@ public class Calculator extends JFrame implements ActionListener{
             x[i].addActionListener(this);
             x[i].setFont(myfont);
             x[i].setFocusable(false);
+            x[i].setBackground(Color.BLACK);
+            x[i].setForeground(Color.BLACK);
 
         }
 

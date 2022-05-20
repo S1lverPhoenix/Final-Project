@@ -13,24 +13,31 @@ public class GroceryItem {
     private boolean show;
     private int xLoc;
     private int yLoc;
-    private static final int SQUARE_HEIGHT = 85;
-	private static final int SQUARE_WIDTH = 115;
+    private static final int SQUARE_HEIGHT = 59; //59
+	private static final int SQUARE_WIDTH = 87; //87
 	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Null", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
 
     public GroceryItem(String s){
         name = s;
         for(int x = 0; x<names.length; x++){
+            System.out.println(x);
             for(int y = 0; y<names[0].length; y++){
-                if(name.equals(names[x][y])){
-                    xLoc = x;
+                System.out.println(y);
+                String n = names[x][y];
+                System.out.println(n);
+                if(name.equals(n)){
+                    xLoc = 2*x+1;
                     yLoc = y;
-                 image =  openImageFromSpriteSheet(x*SQUARE_HEIGHT, y*SQUARE_WIDTH, SQUARE_WIDTH, SQUARE_HEIGHT);
+                image = openImageFromSpriteSheet(y*SQUARE_HEIGHT+70, x*SQUARE_WIDTH+40, SQUARE_WIDTH, SQUARE_HEIGHT);
                 }
             }
         }
         //open an image here
     }
 
+    public String toString(){
+        return name;
+    }
     public String getName(){
         return name;
     }
@@ -94,12 +101,12 @@ public class GroceryItem {
 
     public void draw(Graphics g){
         int x = xLoc, y = yLoc;
-                    if (image != null){
-                        g.drawImage( image, x*SQUARE_HEIGHT, y*SQUARE_WIDTH, null);
-                    }
-                    else{
-                        System.out.println("Image "+image+" is null for "+name);
-                    }
+            if (image != null){
+                g.drawImage(image, x*SQUARE_HEIGHT, y*SQUARE_WIDTH, null);
+            }
+            else{
+                System.out.println("Image "+image+" is null for "+name);
+            }
                
     }
 }
