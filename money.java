@@ -5,11 +5,14 @@ import javax.swing.ImageIcon;
 
 public class Money extends JFrame implements ActionListener{
     JFrame frame;
+    
     JButton[] money = new JButton[7];
     JButton oneButton, fiveButton, tenButton, twentyButton, fiftyButton, hundredButton,amtTotal;
     private int totalPaid;
+    private double amount;
 
     public Money() {
+        
         frame=new JFrame("Money");
         frame.setResizable(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,7 +48,7 @@ public class Money extends JFrame implements ActionListener{
             money[i].addActionListener(this);
             money[i].setFocusable(false);
         }
-
+       
         oneButton.setBounds(0,0,226,530);
         fiveButton.setBounds(226,0,228,530);
         tenButton.setBounds(454,0,228,530);
@@ -92,10 +95,17 @@ public class Money extends JFrame implements ActionListener{
             totalPaid+=100;
         }
         for(int i=0; i<1; i++){
+            //if there is a button corresponding to this source call
             if(e.getSource()==amtTotal){
                 System.out.println("The Total amount paid was: "+ totalPaid);
-            }
+
+            }  
             return;
-        }
+        } 
+    } 
+    public double getTotalDollars(){
+        return totalPaid;
     }
+   
 }
+

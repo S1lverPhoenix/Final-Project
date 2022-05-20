@@ -12,8 +12,7 @@ import java.awt.Image;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.JPanel;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+
 
 
 public class GameFrame extends JFrame {
@@ -94,16 +93,8 @@ public class GameFrame extends JFrame {
 		this.setVisible(true);
 		panel.requestFocusInWindow();
 
-		//addKeys(panel);
+		
 	
-	
-	// private void start() {
-    //     try {
-    //         File f = new File("images/backgrounds/shelf.jpeg");
-    //         img = ImageIO.read(f);
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //     }
         
         panel = new JPanel() {
             @Override 
@@ -115,17 +106,7 @@ public class GameFrame extends JFrame {
                 //grid.draw(g);
             }
         };
-	// panel.addMouseListener(new MouseListener()){
-	// 	public void mousePressed(MouseEvent me) {
-	// 		clickedAt(me);
-	// 	}
-	// });
-
-	// protected void clickedAt(MouseEvent me) {
-	// 	System.out.println("You just clicked "+me);	
-	// 	game.justClicked(me);
-	// 	panel.repaint();
-	// }
+	
 
 }
 
