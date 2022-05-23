@@ -5,6 +5,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.net.URL;
+import javax.swing.Box;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 public class GroceryItem {
     private  Image image;
@@ -13,6 +17,8 @@ public class GroceryItem {
     private boolean show;
     private int xLoc;
     private int yLoc;
+    private Icon icon;
+    private JButton button;
     private static final int SQUARE_HEIGHT = 59; //59
 	private static final int SQUARE_WIDTH = 87; //87
 	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Null", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
@@ -29,6 +35,8 @@ public class GroceryItem {
                     xLoc = 2*x+1;
                     yLoc = y;
                 image = openImageFromSpriteSheet(y*SQUARE_HEIGHT+70, x*SQUARE_WIDTH+40, SQUARE_WIDTH, SQUARE_HEIGHT);
+                icon = new ImageIcon(image);
+                button = new JButton(icon);
                 }
             }
         }
