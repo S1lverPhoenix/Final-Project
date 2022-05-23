@@ -40,7 +40,6 @@ public class GroceryItem {
                 }
             }
         }
-        //open an image here
     }
 
     public String toString(){
@@ -53,12 +52,6 @@ public class GroceryItem {
     public void addPrice(double d) {
         price = d;
     }
-
-    // public void draw(String path) throws IOException{
-    //     URL url = this.getClass().getResource(path);
-    //     java.awt.image.BufferedImage img = ImageIO.read(url);
-    // }
-
 
     public Image getImage(){
         return image;
