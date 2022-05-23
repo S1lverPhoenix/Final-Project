@@ -10,6 +10,7 @@ public class Money extends JFrame implements ActionListener{
     JButton oneButton, fiveButton, tenButton, twentyButton, fiftyButton, hundredButton,amtTotal;
     private int totalPaid;
     private double amount;
+    GameOver go = new GameOver();
 
     public Money() {
         
@@ -48,12 +49,7 @@ public class Money extends JFrame implements ActionListener{
             money[i].addActionListener(this);
             money[i].setFocusable(false);
         }
-<<<<<<< HEAD
-
-        //setting the bounds
-=======
        
->>>>>>> c2da2f1d45b21a532c412cf1177bedbf88806a99
         oneButton.setBounds(0,0,226,530);
         fiveButton.setBounds(226,0,228,530);
         tenButton.setBounds(454,0,228,530);
@@ -62,7 +58,6 @@ public class Money extends JFrame implements ActionListener{
         hundredButton.setBounds(1138,0,228,530);
         amtTotal.setBounds(1366,0,70,300);
 
-        //adding to the frame
         frame.add(oneButton);
         frame.add(fiveButton);
         frame.add(tenButton);
@@ -77,8 +72,13 @@ public class Money extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==oneButton){
-            System.out.println("One dollar has been paid!");
             totalPaid+=1;
+            if(totalPaid > 100){
+                totalPaid - 1;
+                go;
+            }
+            else
+                System.out.println("One dollar has been paid!");
         }
         if(e.getSource()==fiveButton){
             System.out.println("Five dollars have been paid!");
@@ -111,6 +111,10 @@ public class Money extends JFrame implements ActionListener{
     } 
     public double getTotalDollars(){
         return totalPaid;
+    }
+
+    public double billValue(){
+        
     }
    
 }
