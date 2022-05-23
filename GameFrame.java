@@ -12,17 +12,11 @@ import java.awt.Image;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.JPanel;
-<<<<<<< HEAD
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import javax.swing.table.DefaultTableModel;
-=======
-
-
->>>>>>> c2da2f1d45b21a532c412cf1177bedbf88806a99
-
 
 public class GameFrame extends JFrame {
 	// private BufferedImage sprite;
@@ -141,20 +135,7 @@ public class GameFrame extends JFrame {
 
 		
 	
-<<<<<<< HEAD
-	
-	// private void start() {
-    //     try {
-    //         File f = new File("images/backgrounds/shelf.jpeg");
-    //         img = ImageIO.read(f);
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //     }
-    
-	//repainting the game
-=======
-        
->>>>>>> c2da2f1d45b21a532c412cf1177bedbf88806a99
+
         panel = new JPanel() {
             @Override 
             public void paintComponent(Graphics g) {
@@ -165,26 +146,8 @@ public class GameFrame extends JFrame {
 				repaint();
             }
         };
-<<<<<<< HEAD
 
-		
-
-	// panel.addMouseListener(new MouseListener()){
-	// 	public void mousePressed(MouseEvent me) {
-	// 		clickedAt(me);
-	// 	}
-	// });
-
-	// protected void clickedAt(MouseEvent me) {
-	// 	System.out.println("You just clicked "+me);	
-	// 	game.justClicked(me);
-	// 	panel.repaint();
-	// }
 		System.out.println("Panel set up complete");
-=======
-	
->>>>>>> c2da2f1d45b21a532c412cf1177bedbf88806a99
-
 	}
 
 	private void fillItems() {
