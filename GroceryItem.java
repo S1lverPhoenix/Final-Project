@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.net.URL;
+import javax.swing.JTextField;
 
 public class GroceryItem {
     private  Image image;
@@ -15,23 +16,40 @@ public class GroceryItem {
     private int yLoc;
     private static final int SQUARE_HEIGHT = 59; //58
 	private static final int SQUARE_WIDTH = 87; //87
-	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Null", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
+	private static String[][] names = {
+        {"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter"}, 
+        {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, 
+        {"Macaroni", "Apples", "Null", "Peanuts", "Milk"},
+        { "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, 
+        {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}
+        };
+    private static JTextField textField;
 
+    //JTextField pineapple = new JTextField("Pineapples");
+    //pineapple.setBounds(0,10,5,3);
+    //frame.add(pineapple);
+    
     public GroceryItem(String s){
         name = s;
         for(int r = 0; r<names.length; r++){
-            System.out.println(r);
+            // System.out.println(r);
             for(int c = 0; c<names[0].length; c++){
                 String n = names[r][c];
-                System.out.println(n);
+                // System.out.println(n);
                 if(name.equals(n)){
                     xLoc = r + 2;
-                    yLoc = c+ 1;
-                 image = openImageFromSpriteSheet(c*SQUARE_HEIGHT+70, r*SQUARE_WIDTH+40, SQUARE_WIDTH, SQUARE_HEIGHT);
+                    yLoc = c + 1;
+                    image = openImageFromSpriteSheet(c*SQUARE_HEIGHT+70, r*SQUARE_WIDTH+40, SQUARE_WIDTH, SQUARE_HEIGHT);
                 }
             }
         }
         //open an image here
+
+        textField = new JTextField(name);
+
+        //.add(pineapple);
+
+        //set visibility to true
     }
 
     public String toString(){
@@ -39,6 +57,9 @@ public class GroceryItem {
     }
     public String getName(){
         return name;
+    }
+    public JTextField getTextField(){
+        return textField;
     }
 
     public void addPrice(double d) {
@@ -93,19 +114,20 @@ public class GroceryItem {
     protected  Image openImageFromSpriteSheet(int y, int x, int w, int h) {
 		openImage();
         BufferedImage temp = ((BufferedImage) image).getSubimage(x,y,w,h);
-       return temp.getScaledInstance(SQUARE_WIDTH, SQUARE_HEIGHT, BufferedImage.SCALE_SMOOTH);
+        return temp.getScaledInstance(SQUARE_WIDTH, SQUARE_HEIGHT, BufferedImage.SCALE_SMOOTH);
 		//return temp;
 	}
 
 
     public void draw(Graphics g){
         int x = xLoc, y = yLoc;
-            if (image != null){
-                g.drawImage(image, x*SQUARE_HEIGHT, y*SQUARE_WIDTH, null);
-            }
-            else{
-                System.out.println("Image "+image+" is null for "+name);
-            }
+        //System.out.println("Image is "+image+" for  "+name);
+        if (image != null){
+            g.drawImage(image, x*SQUARE_HEIGHT, y*SQUARE_WIDTH, null);
+        }
+        else{
+            System.out.println("Image "+image+" is null for "+name);
+        }
                
     }
 }

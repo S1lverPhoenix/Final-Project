@@ -14,6 +14,9 @@ import javax.swing.*;
 import javax.swing.JPanel;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import javax.swing.table.DefaultTableModel;
 
 
 public class GameFrame extends JFrame {
@@ -22,12 +25,22 @@ public class GameFrame extends JFrame {
 	private Game game = new Game();
 	private Image img;
 	private GroceryList items = new GroceryList();
+	
+	private static String[][] groceryNamesTable = {
+		{"Pineapples", "0"}, {"Bread", "0"}, {"Yogurt", "0"}, {"Strawberries", "0"}, {"Peanut Butter", "0"},
+		{"Pudding", "0"}, {"Tuna", "0"}, {"Cookies", "0"}, {"Pretzels", "0"}, {"Potatoes", "0"},
+		{"Macaroni", "0"}, {"Apples", "0"}, {"Peanuts", "0"}, {"Milk", "0"},
+		{"Cheese", "0"}, {"Chips", "0"}, {"Cereal", "0"}, {"Broccoli", "0"}, {"Eggplant", "0"},
+		{"Carrots", "0"}, {"Eggs", "0"}, {"Hot Dogs", "0"}, {"Banana", "0"}, {"Muffins", "0"}
+		};
+	
+	String[] groceryHeader = { "Item", "Count" };
 
 	// starting dimensions of window (pixels)
 	
 	//change dimensions to make it bigger to fit the count of the items of what the user clicked in the bottom:
 	//name, price, count of how many times each item is clicked
-	public static final int WIDTH = 500, HEIGHT = 300, REFRESH = 40;
+	public static final int WIDTH = 700, HEIGHT = 700, REFRESH = 40;
 	// private void init(){
 	// 	BufferedImage loader = new BufferedImage();
 	// 	BufferedImage spriteSheet = null; 
@@ -41,15 +54,17 @@ public class GameFrame extends JFrame {
 	// 	sprite= ss.getSprite(0,0, 20, 40);
 	
 	// where the game objects are displayed
+
+	//drawing the game, grocery items and all
 	private JPanel panel = new JPanel() {
 		@Override
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			g.drawImage(img, 0,0,null);
-			game.drawTheGame(g);
+			// game.drawTheGame(g);  // nothing will be drawn with this. is this required ?
 			items.makeGroceryList();
 			for(GroceryItem gi:items.getItems()){
-				System.out.println(gi);
+				System.out.println("Grocery Item :" + gi);
 				gi.draw(g);
 			}
 			// tried to get rid of some stuttering, changing REFRESH 
@@ -58,6 +73,8 @@ public class GameFrame extends JFrame {
 		}
 	};
 	private Timer timer;//timer that runs the game
+
+	private JPanel cartPanel = new JPanel();
 
 
 	public GameFrame(String string) {
@@ -81,7 +98,28 @@ public class GameFrame extends JFrame {
         }
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-		this.add(panel);
+		this.setResizable(false);
+
+
+		// setting up the cartPanel
+		DefaultTableModel model = new DefaultTableModel(groceryNamesTable, groceryHeader);
+		JTable groceryTable = new JTable(model);
+		groceryTable.setPreferredScrollableViewportSize(new Dimension(450,63));
+		groceryTable.setFillsViewportHeight(true);
+		// to add scrollbar
+		JScrollPane js=new JScrollPane(groceryTable);
+		js.setVisible(true);
+		cartPanel.add(js);
+		cartPanel.add(new JScrollPane(groceryTable));
+		cartPanel.setPreferredSize(new Dimension(WIDTH, 100));
+
+
+		// add the panel to the frame
+		this.add(panel, BorderLayout.CENTER);
+
+		// add the cartpanel to the frame
+		this.add(cartPanel, BorderLayout.SOUTH);
+		
 		this.pack();
 		timer = new Timer(REFRESH, new ActionListener() {
 			@Override
@@ -93,6 +131,7 @@ public class GameFrame extends JFrame {
 		fillItems();
 		timer.start();
 		this.setVisible(true);
+		this.setSize(WIDTH, HEIGHT);
 		panel.requestFocusInWindow();
 
 		//addKeys(panel);
@@ -105,17 +144,21 @@ public class GameFrame extends JFrame {
     //     } catch (Exception e) {
     //         e.printStackTrace();
     //     }
-        
+    
+	//repainting the game
         panel = new JPanel() {
             @Override 
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 g.drawImage(img, 0,0,null);
 				//g.drawImage(sprite, 100,100, null);
-				repaint();
                 //grid.draw(g);
+				repaint();
             }
         };
+
+		
+
 	// panel.addMouseListener(new MouseListener()){
 	// 	public void mousePressed(MouseEvent me) {
 	// 		clickedAt(me);
@@ -127,8 +170,9 @@ public class GameFrame extends JFrame {
 	// 	game.justClicked(me);
 	// 	panel.repaint();
 	// }
+		System.out.println("Panel set up complete");
 
-}
+	}
 
 	private void fillItems() {
 
