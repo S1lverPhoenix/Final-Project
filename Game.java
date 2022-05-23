@@ -12,7 +12,9 @@ public class Game {
         
     }
     
-
+	public void GameOver(){
+		
+	}
 
 	/**
 	 * This is called every time the Timer goes off.  Right now, it moves all 
