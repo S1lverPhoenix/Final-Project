@@ -12,7 +12,6 @@ public class SwingGraphicsGame {
 	            public void run() {
 	                GameFrame wnd = new GameFrame("Dollar Up!");
 	                wnd.setVisible(true);
-						
 	            }
 	        });
 	    }

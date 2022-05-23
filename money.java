@@ -48,7 +48,12 @@ public class Money extends JFrame implements ActionListener{
             money[i].addActionListener(this);
             money[i].setFocusable(false);
         }
+<<<<<<< HEAD
+
+        //setting the bounds
+=======
        
+>>>>>>> c2da2f1d45b21a532c412cf1177bedbf88806a99
         oneButton.setBounds(0,0,226,530);
         fiveButton.setBounds(226,0,228,530);
         tenButton.setBounds(454,0,228,530);
@@ -57,6 +62,7 @@ public class Money extends JFrame implements ActionListener{
         hundredButton.setBounds(1138,0,228,530);
         amtTotal.setBounds(1366,0,70,300);
 
+        //adding to the frame
         frame.add(oneButton);
         frame.add(fiveButton);
         frame.add(tenButton);
