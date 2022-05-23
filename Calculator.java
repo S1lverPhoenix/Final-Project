@@ -14,12 +14,15 @@ public class Calculator extends JFrame implements ActionListener{
 
     Font myfont=new Font("Serif", Font.BOLD, 30);
 
-    protected double num1=0;
-    protected double num2=0;
-    protected double value=0;
 
+    private double num1=0;
+    private double num2=0;
+    protected static double value=0;
+    
     char operator;
-
+    public double getNum1(){
+        return num1;
+    }
     public Calculator(){
         frame=new JFrame("Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,9 +83,9 @@ public class Calculator extends JFrame implements ActionListener{
 
         //adding buttons
         //1st row
-        p.add(x[7]);
-        p.add(x[8]);
-        p.add(x[9]);
+        p.add(x[1]);
+        p.add(x[2]);
+        p.add(x[3]);
         p.add(divButton);
         //2nd row
         p.add(x[4]);
@@ -90,9 +93,9 @@ public class Calculator extends JFrame implements ActionListener{
         p.add(x[6]);
         p.add(multButton);
         //3rd row
-        p.add(x[1]);
-        p.add(x[2]);
-        p.add(x[3]);
+        p.add(x[7]);
+        p.add(x[8]);
+        p.add(x[9]);
         p.add(subButton);
         //4th row
         p.add(x[0]);
@@ -187,7 +190,8 @@ public class Calculator extends JFrame implements ActionListener{
             num1=value;
         }
     }    
-    public double getTotal(){
-        return value;
+    public static double getTotal(){
+       return value;
     }
+    
 }

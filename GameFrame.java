@@ -12,11 +12,16 @@ import java.awt.Image;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.JPanel;
+<<<<<<< HEAD
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import javax.swing.table.DefaultTableModel;
+=======
+
+
+>>>>>>> c2da2f1d45b21a532c412cf1177bedbf88806a99
 
 
 public class GameFrame extends JFrame {
@@ -134,8 +139,9 @@ public class GameFrame extends JFrame {
 		this.setSize(WIDTH, HEIGHT);
 		panel.requestFocusInWindow();
 
-		//addKeys(panel);
+		
 	
+<<<<<<< HEAD
 	
 	// private void start() {
     //     try {
@@ -146,6 +152,9 @@ public class GameFrame extends JFrame {
     //     }
     
 	//repainting the game
+=======
+        
+>>>>>>> c2da2f1d45b21a532c412cf1177bedbf88806a99
         panel = new JPanel() {
             @Override 
             public void paintComponent(Graphics g) {
@@ -156,6 +165,7 @@ public class GameFrame extends JFrame {
 				repaint();
             }
         };
+<<<<<<< HEAD
 
 		
 
@@ -171,6 +181,9 @@ public class GameFrame extends JFrame {
 	// 	panel.repaint();
 	// }
 		System.out.println("Panel set up complete");
+=======
+	
+>>>>>>> c2da2f1d45b21a532c412cf1177bedbf88806a99
 
 	}
 

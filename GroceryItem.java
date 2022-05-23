@@ -5,7 +5,14 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.net.URL;
+<<<<<<< HEAD
 import javax.swing.JTextField;
+=======
+import javax.swing.Box;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+>>>>>>> c2da2f1d45b21a532c412cf1177bedbf88806a99
 
 public class GroceryItem {
     private  Image image;
@@ -14,7 +21,9 @@ public class GroceryItem {
     private boolean show;
     private int xLoc;
     private int yLoc;
-    private static final int SQUARE_HEIGHT = 59; //58
+    private Icon icon;
+    private JButton button;
+    private static final int SQUARE_HEIGHT = 59; //59
 	private static final int SQUARE_WIDTH = 87; //87
 	private static String[][] names = {
         {"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter"}, 
@@ -31,6 +40,7 @@ public class GroceryItem {
     
     public GroceryItem(String s){
         name = s;
+<<<<<<< HEAD
         for(int r = 0; r<names.length; r++){
             // System.out.println(r);
             for(int c = 0; c<names[0].length; c++){
@@ -40,6 +50,20 @@ public class GroceryItem {
                     xLoc = r + 2;
                     yLoc = c + 1;
                     image = openImageFromSpriteSheet(c*SQUARE_HEIGHT+70, r*SQUARE_WIDTH+40, SQUARE_WIDTH, SQUARE_HEIGHT);
+=======
+        for(int x = 0; x<names.length; x++){
+            System.out.println(x);
+            for(int y = 0; y<names[0].length; y++){
+                System.out.println(y);
+                String n = names[x][y];
+                System.out.println(n);
+                if(name.equals(n)){
+                    xLoc = 2*x+1;
+                    yLoc = y;
+                image = openImageFromSpriteSheet(y*SQUARE_HEIGHT+70, x*SQUARE_WIDTH+40, SQUARE_WIDTH, SQUARE_HEIGHT);
+                icon = new ImageIcon(image);
+                button = new JButton(icon);
+>>>>>>> c2da2f1d45b21a532c412cf1177bedbf88806a99
                 }
             }
         }
