@@ -22,7 +22,6 @@ public class GroceryItem {
     private static final int SQUARE_HEIGHT = 59; //59
 	private static final int SQUARE_WIDTH = 87; //87
 	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Null", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
-
     public GroceryItem(String s){
         name = s;
         for(int x = 0; x<names.length; x++){
@@ -95,19 +94,19 @@ public class GroceryItem {
     protected  Image openImageFromSpriteSheet(int y, int x, int w, int h) {
 		openImage();
         BufferedImage temp = ((BufferedImage) image).getSubimage(x,y,w,h);
-       return temp.getScaledInstance(SQUARE_WIDTH, SQUARE_HEIGHT, BufferedImage.SCALE_SMOOTH);
+        return temp.getScaledInstance(SQUARE_WIDTH, SQUARE_HEIGHT, BufferedImage.SCALE_SMOOTH);
 		//return temp;
 	}
 
 
     public void draw(Graphics g){
         int x = xLoc, y = yLoc;
-            if (image != null){
-                g.drawImage(image, x*SQUARE_HEIGHT, y*SQUARE_WIDTH, null);
-            }
-            else{
-                System.out.println("Image "+image+" is null for "+name);
-            }
+        if (image != null){
+            g.drawImage(image, x*SQUARE_HEIGHT, y*SQUARE_WIDTH, null);
+        }
+        else{
+            System.out.println("Image "+image+" is null for "+name);
+        }
                
     }
 }

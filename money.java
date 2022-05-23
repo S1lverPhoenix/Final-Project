@@ -35,6 +35,7 @@ public class Money extends JFrame implements ActionListener{
         
         //total value button
         amtTotal=new JButton("Total");
+        amtTotal. setFont(new Font("Times New Roman", Font. PLAIN, 80));
 
         money[0]=oneButton;
         money[1]=fiveButton;
@@ -55,7 +56,7 @@ public class Money extends JFrame implements ActionListener{
         twentyButton.setBounds(682,0,228,530);
         fiftyButton.setBounds(910,0,228,530);
         hundredButton.setBounds(1138,0,228,530);
-        amtTotal.setBounds(1366,0,70,300);
+        amtTotal.setBounds(454,454,456,285);
 
         //adding to the frame
         frame.add(oneButton);
