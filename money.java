@@ -111,7 +111,7 @@ public class Money extends JFrame implements ActionListener{
             //}  
             return;
         } 
-    } 
+    //} 
     public double getTotalDollars(){
         return totalPaid;
     }
