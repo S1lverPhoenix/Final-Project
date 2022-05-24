@@ -12,10 +12,21 @@ public class GroceryList {
 	private static String[][] names = {
 	{"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter"}, 
 	{"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, 
-	{"Macaroni", "Apples", "Null", "Peanuts", "Milk"},
+	{"Macaroni", "Apples", "Hamburger", "Peanuts", "Milk"},
 	{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, 
 	{"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}
 	};
+<<<<<<< Updated upstream
+=======
+
+	private static Double[][] prices = {
+		{1.55, 0.59, 0.25, 1.34, 2.25},
+		{1.25, 4.75, 3.51, 2.27, 3.99},
+		{2.52, 1.99, 5.42, 4.99, 5.67},
+		{1.32, 3.53, 2.83, 6.52, 4.36},
+		{3.45, 4.54, 7.45, 2.15, 2.25}
+	};
+>>>>>>> Stashed changes
     //show the price of each item too
 
 	public ArrayList<GroceryItem> getItems(){
