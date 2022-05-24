@@ -8,7 +8,7 @@ public class Money extends JFrame implements ActionListener{
     
     JButton[] money = new JButton[7];
     JButton oneButton, fiveButton, tenButton, twentyButton, fiftyButton, hundredButton,amtTotal;
-    private int totalPaid;
+    private static int totalPaid;
     private double amount;
 
     public Money() {
@@ -66,7 +66,6 @@ public class Money extends JFrame implements ActionListener{
         frame.add(fiftyButton);
         frame.add(hundredButton);
         frame.add(amtTotal);
-
         frame.setVisible(true);
     }
 
@@ -105,7 +104,7 @@ public class Money extends JFrame implements ActionListener{
             return;
         } 
     } 
-    public double getTotalDollars(){
+    public static double getTotalDollars(){
         return totalPaid;
     }
    
