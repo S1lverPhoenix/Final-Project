@@ -110,7 +110,7 @@ public class GameFrame extends JFrame {
 		js.setVisible(true);
 		cartPanel.add(js);
 		cartPanel.add(new JScrollPane(groceryTable));
-		cartPanel.setPreferredSize(new Dimension(WIDTH, 100));
+		cartPanel.setPreferredSize(new Dimension(WIDTH, 200));
 
 
 		// add the panel to the frame
