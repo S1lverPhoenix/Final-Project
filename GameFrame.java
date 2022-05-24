@@ -28,7 +28,7 @@ public class GameFrame extends JFrame {
 	private static String[][] groceryNamesTable = {
 		{"Pineapples", "0"}, {"Bread", "0"}, {"Yogurt", "0"}, {"Strawberries", "0"}, {"Peanut Butter", "0"},
 		{"Pudding", "0"}, {"Tuna", "0"}, {"Cookies", "0"}, {"Pretzels", "0"}, {"Potatoes", "0"},
-		{"Macaroni", "0"}, {"Apples", "0"}, {"Peanuts", "0"}, {"Milk", "0"},
+		{"Macaroni", "0"}, {"Apples", "0"}, {"Hamburger", "0"}, {"Peanuts", "0"}, {"Milk", "0"},
 		{"Cheese", "0"}, {"Chips", "0"}, {"Cereal", "0"}, {"Broccoli", "0"}, {"Eggplant", "0"},
 		{"Carrots", "0"}, {"Eggs", "0"}, {"Hot Dogs", "0"}, {"Banana", "0"}, {"Muffins", "0"}
 		};
@@ -103,14 +103,14 @@ public class GameFrame extends JFrame {
 		// setting up the cartPanel
 		DefaultTableModel model = new DefaultTableModel(groceryNamesTable, groceryHeader);
 		JTable groceryTable = new JTable(model);
-		groceryTable.setPreferredScrollableViewportSize(new Dimension(450,100)); //63
+		groceryTable.setPreferredScrollableViewportSize(new Dimension(450,63));
 		groceryTable.setFillsViewportHeight(true);
 		// to add scrollbar
 		JScrollPane js=new JScrollPane(groceryTable);
 		js.setVisible(true);
 		cartPanel.add(js);
 		cartPanel.add(new JScrollPane(groceryTable));
-		cartPanel.setPreferredSize(new Dimension(WIDTH, 200));
+		cartPanel.setPreferredSize(new Dimension(WIDTH, 100));
 
 
 		// add the panel to the frame
