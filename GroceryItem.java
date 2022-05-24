@@ -5,6 +5,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.net.URL;
+import java.util.ArrayList;
+
 import javax.swing.Box;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -19,6 +21,7 @@ public class GroceryItem {
     private int yLoc;
     private Icon icon;
     private JButton button;
+    private ArrayList<JButton> buttonList = new ArrayList<>();
     private static final int SQUARE_HEIGHT = 59; //59
 	private static final int SQUARE_WIDTH = 87; //87
 
@@ -29,9 +32,9 @@ public class GroceryItem {
 	
         name = s;
         for(int x = 0; x<names.length; x++){
-            System.out.println(x);
+            //System.out.println(x);
             for(int y = 0; y<names[0].length; y++){
-                System.out.println(y);
+                //System.out.println(y);
                 String n = names[x][y];
                 System.out.println(n);
                 if(name.equals(n)){
@@ -40,6 +43,7 @@ public class GroceryItem {
                 image = openImageFromSpriteSheet(y*SQUARE_HEIGHT+70, x*SQUARE_WIDTH+40, SQUARE_WIDTH, SQUARE_HEIGHT);
                 icon = new ImageIcon(image);
                 button = new JButton(icon);
+                buttonList.add(button);
                 }
             }
         }

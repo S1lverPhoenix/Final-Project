@@ -16,7 +16,7 @@ public class Money extends JFrame implements ActionListener{
         frame=new JFrame("Money");
         frame.setResizable(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1450,560);
+        frame.setSize(1450,800);
         frame.setLayout(null);
 
         //setting dollar bills to buttons
