@@ -34,7 +34,7 @@ public class GroceryList {
 		int count = 0;
 		for(int x = 0; x<names.length; x++){
 			for(int y = 0; y<names[0].length; y++){
-				groceryItems.add(new GroceryItem(names[x][y],prices[x][y]));
+				groceryItems.add (new GroceryItem (names[x][y], prices[x][y]));
 				if(groceryItems.get(count).equals(null)){
 					groceryItems.remove(count);
 				}
