@@ -103,7 +103,7 @@ public class GameFrame extends JFrame {
 		// setting up the cartPanel
 		DefaultTableModel model = new DefaultTableModel(groceryNamesTable, groceryHeader);
 		JTable groceryTable = new JTable(model);
-		groceryTable.setPreferredScrollableViewportSize(new Dimension(450,63));
+		groceryTable.setPreferredScrollableViewportSize(new Dimension(450,85)); //63
 		groceryTable.setFillsViewportHeight(true);
 		// to add scrollbar
 		JScrollPane js=new JScrollPane(groceryTable);
