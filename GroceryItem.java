@@ -26,6 +26,7 @@ public class GroceryItem {
     
     public GroceryItem(String s, Double p){
         price = p;
+	
         name = s;
         for(int x = 0; x<names.length; x++){
             System.out.println(x);
@@ -107,6 +108,7 @@ public class GroceryItem {
         if (image != null){
             g.drawImage(image, x*SQUARE_HEIGHT, y*SQUARE_WIDTH, null);
             g.drawString(name + " $" + price, (2*y+1) * SQUARE_HEIGHT , (x)*SQUARE_WIDTH/2 + 30);
+
         }
         else{
             System.out.println("Image "+image+" is null for "+name);
