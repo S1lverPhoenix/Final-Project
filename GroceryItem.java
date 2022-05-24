@@ -24,17 +24,14 @@ public class GroceryItem {
     private ArrayList<JButton> buttonList = new ArrayList<>();
     private static final int SQUARE_HEIGHT = 59; //59
 	private static final int SQUARE_WIDTH = 87; //87
-
-	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Berries", "PB"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Hamburger", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
-    
-    public GroceryItem(String s, Double p){
-        price = p;
-	
+    private int itemCount = 0;
+	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Berries", "PB"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Null", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
+    public GroceryItem(String s){
         name = s;
         for(int x = 0; x<names.length; x++){
-            //System.out.println(x);
+            System.out.println(x);
             for(int y = 0; y<names[0].length; y++){
-                //System.out.println(y);
+                System.out.println(y);
                 String n = names[x][y];
                 System.out.println(n);
                 if(name.equals(n)){
@@ -75,6 +72,12 @@ public class GroceryItem {
 		
         }
     }
+    private void incrementItemCount(){
+        itemCount++;
+    }
+    private double calcTotalValue(){
+        return itemCount*price;
+    }
 	// protected static BufferedImage openImageFromSpriteSheet(int x, int y, int w, int h) {
 	// 	openImage();
 	// 	Image temp = ((BufferedImage) Image).getSubimage(x,y,w,h).getScaledInstance(SQUARE_WIDTH, SQUARE_HEIGHT, BufferedImage.SCALE_SMOOTH);
@@ -111,8 +114,10 @@ public class GroceryItem {
         int x = xLoc, y = yLoc;
         if (image != null){
             g.drawImage(image, x*SQUARE_HEIGHT, y*SQUARE_WIDTH, null);
-            g.drawString(name + " $" + price, (2*y+1) * SQUARE_HEIGHT , (x)*SQUARE_WIDTH/2 + 30);
 
+            //if (!name.equals("Null")) {
+                g.drawString(name + " $" + price, (2*y+1) * SQUARE_HEIGHT , (x)*SQUARE_WIDTH/2 + 30);
+            //}
         }
         else{
             System.out.println("Image "+image+" is null for "+name);
