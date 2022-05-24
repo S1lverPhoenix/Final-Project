@@ -103,12 +103,12 @@ public class Money extends JFrame implements ActionListener{
             totalPaid+=100;
             hundC++;
         }
-        for(int i=0; i<1; i++){
+        //for(int i=0; i<1; i++){
             //if there is a button corresponding to this source call
-            if(e.getSource()==amtTotal){
+            //if(e.getSource()==amtTotal){
                 System.out.println("The Total amount paid was: "+ totalPaid);
 
-            }  
+            //}  
             return;
         } 
     } 
