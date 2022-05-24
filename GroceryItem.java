@@ -21,17 +21,11 @@ public class GroceryItem {
     private JButton button;
     private static final int SQUARE_HEIGHT = 59; //59
 	private static final int SQUARE_WIDTH = 87; //87
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Berries", "PB"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Null", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
-=======
+
 	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Berries", "PB"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Hamburger", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
->>>>>>> Stashed changes
+    
     public GroceryItem(String s, Double p){
-=======
-	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Strawberries", "Peanut Butter"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Null", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
-    public GroceryItem(String s){
->>>>>>> b6761f308becc6e9c7e2436a5e716e4b6d0d42f2
+        price = p;
         name = s;
         for(int x = 0; x<names.length; x++){
             System.out.println(x);
@@ -112,12 +106,7 @@ public class GroceryItem {
         int x = xLoc, y = yLoc;
         if (image != null){
             g.drawImage(image, x*SQUARE_HEIGHT, y*SQUARE_WIDTH, null);
-<<<<<<< Updated upstream
-=======
-            //if (!name.equals("Null")) {
-                g.drawString(name + " $" + price, (2*y+1) * SQUARE_HEIGHT , (x)*SQUARE_WIDTH/2 + 30);
-            //}
->>>>>>> Stashed changes
+            g.drawString(name + " $" + price, (2*y+1) * SQUARE_HEIGHT , (x)*SQUARE_WIDTH/2 + 30);
         }
         else{
             System.out.println("Image "+image+" is null for "+name);
