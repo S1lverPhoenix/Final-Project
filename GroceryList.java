@@ -16,8 +16,6 @@ public class GroceryList {
 	{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, 
 	{"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}
 	};
-<<<<<<< Updated upstream
-=======
 
 	private static Double[][] prices = {
 		{1.55, 0.59, 0.25, 1.34, 2.25},
@@ -26,7 +24,6 @@ public class GroceryList {
 		{1.32, 3.53, 2.83, 6.52, 4.36},
 		{3.45, 4.54, 7.45, 2.15, 2.25}
 	};
->>>>>>> Stashed changes
     //show the price of each item too
 
 	public ArrayList<GroceryItem> getItems(){
