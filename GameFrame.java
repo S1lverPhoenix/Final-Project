@@ -25,13 +25,27 @@ public class GameFrame extends JFrame {
 	private Image img;
 	private GroceryList items = new GroceryList();
 	private JPanel p;
-	private static String[][] groceryNamesTable = {
-		{"Pineapples", "0"}, {"Bread", "0"}, {"Yogurt", "0"}, {"Strawberries", "0"}, {"Peanut Butter", "0"},
-		{"Pudding", "0"}, {"Tuna", "0"}, {"Cookies", "0"}, {"Pretzels", "0"}, {"Potatoes", "0"},
-		{"Macaroni", "0"}, {"Apples", "0"}, {"Hamburger", "0"}, {"Peanuts", "0"}, {"Milk", "0"},
-		{"Cheese", "0"}, {"Chips", "0"}, {"Cereal", "0"}, {"Broccoli", "0"}, {"Eggplant", "0"},
-		{"Carrots", "0"}, {"Eggs", "0"}, {"Hot Dogs", "0"}, {"Banana", "0"}, {"Muffins", "0"}
-		};
+	private String[][] groceryNamesTable = 	new String[25][1];
+
+	//{
+		// {"Pineapples", "0"}, {"Bread", "0"}, {"Yogurt", "0"}, {"Strawberries", "0"}, {"Peanut Butter", "0"},
+		// {"Pudding", "0"}, {"Tuna", "0"}, {"Cookies", "0"}, {"Pretzels", "0"}, {"Potatoes", "0"},
+		// {"Macaroni", "0"}, {"Apples", "0"}, {"Hamburger", "0"}, {"Peanuts", "0"}, {"Milk", "0"},
+		// {"Cheese", "0"}, {"Chips", "0"}, {"Cereal", "0"}, {"Broccoli", "0"}, {"Eggplant", "0"},
+		// {"Carrots", "0"}, {"Eggs", "0"}, {"Hot Dogs", "0"}, {"Banana", "0"}, {"Muffins", "0"}
+		// };
+
+		private void setUpPrices(){
+			int count = 0;
+		for(int r = 0; r<25; r++){
+			for(int c = 0; c<1; c++){
+				String[] temp = {items.getNames()[r][c], items.getItems().get(count).itemCountString()};
+				System.out.println(temp.toString());
+				groceryNamesTable[r] = temp; 
+				count++;
+		}
+	}
+}
 	
 	String[] groceryHeader = { "Item", "Count" };
 
@@ -107,6 +121,7 @@ public class GameFrame extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+		setUpPrices();
 		for(JButton button:items.getButtons()){
 			panel.add(button);
 		}
@@ -153,5 +168,8 @@ public class GameFrame extends JFrame {
 		System.out.println("Panel set up complete");
 	}
 	private void fillItems() {
+	}
+	private void resetPrices(){
+
 	}
 }

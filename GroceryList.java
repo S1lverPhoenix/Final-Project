@@ -35,7 +35,12 @@ public class GroceryList {
 	public ArrayList<GroceryItem> getItems(){
 		return groceryItems;
 	}
-
+	public String[][] getNames(){
+		return names;
+	}
+	public Double[][] getPrices(){
+		return prices;
+	}
 	public void makeGroceryList(){
 		int count = 0;
 		for(int x = 0; x<names.length; x++){
@@ -56,6 +61,7 @@ public class GroceryList {
 						gi.incrementItemCount();
 						totalPrice+=gi.getPrice();
 						System.out.println(gi.toString());
+						
 					}
 
 				});
@@ -66,5 +72,6 @@ public class GroceryList {
 	public ArrayList<JButton> getButtons(){
 		return buttonList;
 	}
+	
 	
 }

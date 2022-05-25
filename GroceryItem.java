@@ -64,6 +64,9 @@ public class GroceryItem {
     public void addPrice(double d) {
         price = d;
     }
+    public String[][] getNames(){
+        return names;
+    }
 
     public Image getImage(){
         return image;
@@ -144,5 +147,16 @@ public class GroceryItem {
     public double getPrice() {
         return price;
     }
+    public String getPriceString() {
+        String ans  = "";
+        ans += price;
+        return ans;
+    }
+
+    public String itemCountString(){
+		String ans = new String();
+		ans +=itemCount;
+		return ans;
+	}
 }
 
