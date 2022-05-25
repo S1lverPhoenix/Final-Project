@@ -37,11 +37,11 @@ public class GameFrame extends JFrame {
 
 		private void setUpPrices(){
 			int count = 0;
-		for(int r = 0; r<25; r++){
-			for(int c = 0; c<1; c++){
+		for(int r = 0; r<5; r++){
+			for(int c = 0; c<5; c++){
 				String[] temp = {items.getNames()[r][c], items.getItems().get(count).itemCountString()};
 				System.out.println(temp.toString());
-				groceryNamesTable[r] = temp; 
+				groceryNamesTable[count] = temp; 
 				count++;
 		}
 	}
