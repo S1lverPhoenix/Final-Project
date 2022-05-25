@@ -92,9 +92,4 @@ public class Game {
 	public void upReleased(ActionEvent e) {
 		System.out.println("Released ^^^^  Up!!");
     }
-
-	
-
-    
-
 }

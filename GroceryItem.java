@@ -19,15 +19,21 @@ public class GroceryItem {
     private int xLoc;
     private int yLoc;
     private Icon icon;
+    private JButton button;
     // private JButton button;
     // private ArrayList<JButton> buttonList = new ArrayList<>();
     private static final int SQUARE_HEIGHT = 59; //59
 	private static final int SQUARE_WIDTH = 87; //87
     private int itemCount = 0;
-	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Berries", "PB"}, {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, {"Macaroni", "Apples", "Null", "Peanuts", "Milk"},{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
+	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Berries", "PB"}, 
+                                        {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, 
+                                        {"Macaroni", "Apples", "Hamburger", "Peanuts", "Milk"},
+                                        { "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, 
+                                        {"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}};
     public GroceryItem(String s, Double p){
         name = s;
         price = p;
+        button = new JButton();
         for(int x = 0; x<names.length; x++){
             //System.out.println(x);
             for(int y = 0; y<names[0].length; y++){
@@ -35,10 +41,12 @@ public class GroceryItem {
                 String n = names[x][y];
                 //System.out.println(n);
                 if(name.equals(n)){
-                    xLoc = 2*x+1;
-                    yLoc = y;
-                image = openImageFromSpriteSheet(y*SQUARE_HEIGHT+70, x*SQUARE_WIDTH+40, SQUARE_WIDTH, SQUARE_HEIGHT);
+                    yLoc = 2*x;
+                    xLoc = y+1;
+                image = openImageFromSpriteSheet(y*SQUARE_WIDTH+40, x*SQUARE_HEIGHT+70, SQUARE_WIDTH, SQUARE_HEIGHT);
                 icon = new ImageIcon(image);
+                button.setIcon(icon);
+                button.setBounds(xLoc*SQUARE_WIDTH-xLoc, yLoc*SQUARE_HEIGHT-15*yLoc, SQUARE_WIDTH, SQUARE_HEIGHT);
                 // button = new JButton(icon);
                 // buttonList.add(button);
                 }
@@ -102,7 +110,7 @@ public class GroceryItem {
     //     }
     // }
 
-    protected  Image openImageFromSpriteSheet(int y, int x, int w, int h) {
+    protected  Image openImageFromSpriteSheet(int x, int y, int w, int h) {
 		openImage();
         BufferedImage temp = ((BufferedImage) image).getSubimage(x,y,w,h);
         return temp.getScaledInstance(SQUARE_WIDTH, SQUARE_HEIGHT, BufferedImage.SCALE_SMOOTH);
@@ -127,6 +135,14 @@ public class GroceryItem {
 
     public Icon getIcon() {
         return icon;
+    }
+
+    public JButton getButton() {
+        return button;
+    }
+
+    public double getPrice() {
+        return price;
     }
 }
 
