@@ -45,7 +45,7 @@ public class Game {
 		//snake.draw(g);
 		// items is currently empty - nothing will be printed out
 		for(GroceryItem go:items) {
-			System.out.println("Listing items in Game object: " + go);
+			//System.out.println("Listing items in Game object: " + go);
 			go.draw(g);
 		}
 

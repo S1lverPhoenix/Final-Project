@@ -63,8 +63,8 @@ public class GameFrame extends JFrame {
 			// game.drawTheGame(g);  // nothing will be drawn with this. is this required ?
 			items.makeGroceryList();
 			for(GroceryItem gi:items.getItems()){
-				System.out.println("Grocery Item :" + gi);
-				gi.draw(g);
+				//System.out.println("Grocery Item :" + gi);
+				//gi.draw(g);
 			}
 			// tried to get rid of some stuttering, changing REFRESH 
 			// improved this issue

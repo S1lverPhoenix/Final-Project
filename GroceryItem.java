@@ -31,11 +31,11 @@ public class GroceryItem {
         name = s;
         price = p;
         for(int x = 0; x<names.length; x++){
-            System.out.println(x);
+            //System.out.println(x);
             for(int y = 0; y<names[0].length; y++){
-                System.out.println(y);
+                //System.out.println(y);
                 String n = names[x][y];
-                System.out.println(n);
+                //System.out.println(n);
                 if(name.equals(n)){
                     xLoc = 2*x+1;
                     yLoc = y;
@@ -128,7 +128,7 @@ public class GroceryItem {
     }
 
     public Icon getIcon() {
-        return null;
+        return icon;
     }
 }
 
