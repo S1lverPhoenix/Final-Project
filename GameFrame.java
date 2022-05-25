@@ -37,15 +37,23 @@ public class GameFrame extends JFrame {
 
 		private void setUpPrices(){
 			int count = 0;
-		for(int r = 0; r<5; r++){
+		for(int r = 0; r<items.getNames().length; r++){
 			for(int c = 0; c<5; c++){
 				String[] temp = {items.getNames()[r][c], items.getItems().get(count).itemCountString()};
-				System.out.println(temp.toString());
+				//System.out.println(temp.toString());
 				groceryNamesTable[count] = temp; 
 				count++;
+			}
 		}
 	}
-}
+	// private void reCountPrices(){
+	// 	for(int r = 0; r<groceryNamesTable.length; r++){
+	// 		for(int c = 0; c<groceryNamesTable[0].length; c++){
+	// 			groceryNamesTable[r][c]
+	// 		}
+	// 	}
+	// }
+
 	
 	String[] groceryHeader = { "Item", "Count" };
 
@@ -76,6 +84,7 @@ public class GameFrame extends JFrame {
 			g.drawImage(img, 0,0,null);
 			//g.drawImage(sprite, 100,100, null);
 			//grid.draw(g);
+			setUpPrices();
 			repaint();
 		}
 	};
@@ -153,6 +162,7 @@ public class GameFrame extends JFrame {
 		timer = new Timer(REFRESH, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				setUpPrices();
 				game.updateGame();
 				panel.repaint();
 			}
