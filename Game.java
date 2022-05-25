@@ -19,10 +19,14 @@ public class Game {
 		for(GroceryItem g: items){
 			sum+= g.calcTotalValue();
 		}
+		checkDollarBills()
 		if(money.getTotalDollars()<= sum+4){
 			//open game over frame
 
 		}
+	}
+
+	private void checkDollarBills() {
 	}
 
 	/**
