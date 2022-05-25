@@ -46,7 +46,7 @@ public class GroceryList {
 				buttonList.add(button);
 			}
 		}
-		System.out.println("Grocery Items : " + groceryItems);
+		//System.out.println("Grocery Items : " + groceryItems);
 	}
 	public ArrayList<JButton> getButtons(){
 		return buttonList;
