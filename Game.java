@@ -24,8 +24,10 @@ public class Game {
 	}
 
 	private void checkDollarBills(Double d) {
-		if(money.getTotalDollars()<= d+4){}
+		if(money.getTotalDollars()<= d+4){
 			//open game over frame
+
+		}
 
 	}
 
