@@ -89,12 +89,16 @@ public class GameFrame extends JFrame {
 	 */
 	private void setUpStuff() {
 		System.out.println("Setting up");
+		items.makeGroceryList();
 		try {
             File f = new File("Images/shelf.jpeg");
             img = ImageIO.read(f);
         } catch (Exception e) {
             e.printStackTrace();
         }
+		for(JButton button:items.getButtons()){
+			panel.add(button);
+		}
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		this.setResizable(false);

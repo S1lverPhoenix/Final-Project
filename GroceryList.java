@@ -3,12 +3,15 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.imageio.ImageIO;
+import javax.swing.JButton;
 
 public class GroceryList {
 	
     private static ArrayList<GroceryItem> groceryItems = new ArrayList<>();
+	private ArrayList<JButton> buttonList= new ArrayList<>();
+	private JButton button;
+
 	private static String[][] names = {
 	{"Pineapples", "Bread", "Yogurt", "Berries", "PB"}, 
 	{"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, 
@@ -39,10 +42,14 @@ public class GroceryList {
 					groceryItems.remove(count);
 				}
 				count++;
+				button= new JButton(groceryItems.get(groceryItems.size()-1).getIcon());
+				buttonList.add(button);
 			}
 		}
 		System.out.println("Grocery Items : " + groceryItems);
 	}
-
+	public ArrayList<JButton> getButtons(){
+		return buttonList;
+	}
 	
 }
