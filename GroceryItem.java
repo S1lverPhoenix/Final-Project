@@ -20,8 +20,8 @@ public class GroceryItem {
     private int xLoc;
     private int yLoc;
     private Icon icon;
-    private JButton button;
-    private ArrayList<JButton> buttonList = new ArrayList<>();
+    // private JButton button;
+    // private ArrayList<JButton> buttonList = new ArrayList<>();
     private static final int SQUARE_HEIGHT = 59; //59
 	private static final int SQUARE_WIDTH = 87; //87
     private int itemCount = 0;
@@ -42,8 +42,8 @@ public class GroceryItem {
                     yLoc = y;
                 image = openImageFromSpriteSheet(y*SQUARE_HEIGHT+70, x*SQUARE_WIDTH+40, SQUARE_WIDTH, SQUARE_HEIGHT);
                 icon = new ImageIcon(image);
-                button = new JButton(icon);
-                buttonList.add(button);
+                // button = new JButton(icon);
+                // buttonList.add(button);
                 }
             }
         }
