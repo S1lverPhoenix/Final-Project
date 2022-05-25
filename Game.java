@@ -5,7 +5,8 @@ import java.awt.Toolkit;
 import java.awt.Image;
 
 public class Game {
-
+	private Money money = new Money();
+	private Calculator calculator = new Calculator();
 	private ArrayList<GroceryItem> items = new ArrayList<>();
 	//private Image img = Toolkit.getDefaultTookkit().getImage("shelf.jpeg");
     public Game(){
@@ -13,7 +14,15 @@ public class Game {
     }
     
 	public void GameOver(){
-		
+		double sum=0;
+		//if the value of the amount paid was greater than or equal to the correct value of the items +4 then we want to proceed
+		for(GroceryItem g: items){
+			sum+= g.calcTotalValue();
+		}
+		if(money.getTotalDollars()<= sum+4){
+			//open game over frame
+
+		}
 	}
 
 	/**

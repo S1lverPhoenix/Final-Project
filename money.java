@@ -10,6 +10,7 @@ public class Money extends JFrame implements ActionListener{
     JButton oneButton, fiveButton, tenButton, twentyButton, fiftyButton, hundredButton,amtTotal;
     private static int totalPaid;
     private double amount;
+    private int oneC, fiveC, tenC, twentyC, fiftyC, hundredC;
 
     public Money() {
         
@@ -74,26 +75,32 @@ public class Money extends JFrame implements ActionListener{
         if(e.getSource()==oneButton){
             System.out.println("One dollar has been paid!");
             totalPaid+=1;
+            oneC++;
         }
         if(e.getSource()==fiveButton){
             System.out.println("Five dollars have been paid!");
             totalPaid+=5;
+            fiveC++;
         }
         if(e.getSource()==tenButton){
             System.out.println("Ten dollars have been paid!");
             totalPaid+=10;
+            tenC++;
         }
         if(e.getSource()==twentyButton){
             System.out.println("Twenty dollars have been paid!");
             totalPaid+=20;
+            twentyC++;
         }
         if(e.getSource()==fiftyButton){
             System.out.println("Fifty dollars have been paid!");
             totalPaid+=50;
+            fiftyC++;
         }
         if(e.getSource()==hundredButton){
             System.out.println("A hundred dollars have been paid!");
             totalPaid+=100;
+            hundredC++;
         }
         for(int i=0; i<1; i++){
             //if there is a button corresponding to this source call
