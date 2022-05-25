@@ -14,15 +14,21 @@ public class Game {
     }
     
 	public void GameOver(){
-		double sum=0;
+		double sum = 0;
 		//if the value of the amount paid was greater than or equal to the correct value of the items +4 then we want to proceed
 		for(GroceryItem g: items){
 			sum+= g.calcTotalValue();
 		}
-		if(money.getTotalDollars()<= sum+4){
+		checkDollarBills(sum);
+		
+	}
+
+	private void checkDollarBills(Double d) {
+		if(money.getTotalDollars()<= d+4){
 			//open game over frame
 
 		}
+
 	}
 
 	/**
