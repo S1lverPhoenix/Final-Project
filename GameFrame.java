@@ -24,7 +24,7 @@ public class GameFrame extends JFrame {
 	private Game game = new Game();
 	private Image img;
 	private GroceryList items = new GroceryList();
-	
+	private JPanel p;
 	private static String[][] groceryNamesTable = {
 		{"Pineapples", "0"}, {"Bread", "0"}, {"Yogurt", "0"}, {"Strawberries", "0"}, {"Peanut Butter", "0"},
 		{"Pudding", "0"}, {"Tuna", "0"}, {"Cookies", "0"}, {"Pretzels", "0"}, {"Potatoes", "0"},
@@ -56,21 +56,31 @@ public class GameFrame extends JFrame {
 
 	//drawing the game, grocery items and all
 	private JPanel panel = new JPanel() {
-		@Override
+		@Override 
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			g.drawImage(img, 0,0,null);
-			// game.drawTheGame(g);  // nothing will be drawn with this. is this required ?
-			items.makeGroceryList();
-			for(GroceryItem gi:items.getItems()){
-				//System.out.println("Grocery Item :" + gi);
-				//gi.draw(g);
-			}
-			// tried to get rid of some stuttering, changing REFRESH 
-			// improved this issue
-			panel.getToolkit().sync();
+			//g.drawImage(sprite, 100,100, null);
+			//grid.draw(g);
+			repaint();
 		}
 	};
+	// private JPanel panel;// = new JPanel() {
+	// 	@Override
+	// 	public void paintComponent(Graphics g) {
+	// 		super.paintComponent(g);
+	// 		g.drawImage(img, 0,0,null);
+	// 		// game.drawTheGame(g);  // nothing will be drawn with this. is this required ?
+	// 		items.makeGroceryList();
+	// 		for(GroceryItem gi:items.getItems()){
+	// 			//System.out.println("Grocery Item :" + gi);
+	// 			gi.draw(g);
+	// 		}
+	// 		// tried to get rid of some stuttering, changing REFRESH 
+	// 		// improved this issue
+	// 		panel.getToolkit().sync();
+	// 	}
+	// };
 	private Timer timer;//timer that runs the game
 
 	private JPanel cartPanel = new JPanel();
@@ -88,6 +98,7 @@ public class GameFrame extends JFrame {
 	 * view is refreshed.  
 	 */
 	private void setUpStuff() {
+		panel.setLayout(null);
 		System.out.println("Setting up");
 		items.makeGroceryList();
 		try {
@@ -101,7 +112,7 @@ public class GameFrame extends JFrame {
 		}
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-		this.setResizable(false);
+		this.setResizable(true);
 
 
 		// setting up the cartPanel
@@ -137,24 +148,10 @@ public class GameFrame extends JFrame {
 		this.setSize(WIDTH, HEIGHT);
 		panel.requestFocusInWindow();
 
-		
-	
-
-        panel = new JPanel() {
-            @Override 
-            public void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                g.drawImage(img, 0,0,null);
-				//g.drawImage(sprite, 100,100, null);
-                //grid.draw(g);
-				repaint();
-            }
-        };
+        
 
 		System.out.println("Panel set up complete");
 	}
-
 	private void fillItems() {
-
 	}
 }

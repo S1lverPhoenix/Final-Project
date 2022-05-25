@@ -1,5 +1,7 @@
 import java.io.File;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ public class GroceryList {
     private static ArrayList<GroceryItem> groceryItems = new ArrayList<>();
 	private ArrayList<JButton> buttonList= new ArrayList<>();
 	private JButton button;
+	private double totalPrice;
 
 	private static String[][] names = {
 	{"Pineapples", "Bread", "Yogurt", "Berries", "PB"}, 
@@ -37,13 +40,25 @@ public class GroceryList {
 		int count = 0;
 		for(int x = 0; x<names.length; x++){
 			for(int y = 0; y<names[0].length; y++){
-				groceryItems.add(new GroceryItem(names[x][y],prices[x][y]));
-				if(groceryItems.get(count).equals(null)){
-					groceryItems.remove(count);
-				}
-				count++;
-				button= new JButton(groceryItems.get(groceryItems.size()-1).getIcon());
-				buttonList.add(button);
+				GroceryItem gi = new GroceryItem(names[x][y],prices[x][y]);
+				groceryItems.add(gi);
+				// if(groceryItems.get(count).equals(null)){
+				// 	groceryItems.remove(count);
+				// }
+				//count++;
+				//button= new JButton(groceryItems.get(groceryItems.size()-1).getIcon());
+
+				buttonList.add(gi.getButton());
+				gi.getButton().addActionListener(new ActionListener(){
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						gi.incrementItemCount();
+						totalPrice+=gi.getPrice();
+						System.out.println(gi.toString());
+					}
+
+				});
 			}
 		}
 		//System.out.println("Grocery Items : " + groceryItems);
