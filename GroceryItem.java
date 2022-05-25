@@ -42,11 +42,11 @@ public class GroceryItem {
                 //System.out.println(n);
                 if(name.equals(n)){
                     yLoc = 2*x;
-                    xLoc = y+1;
+                    xLoc = y;
                 image = openImageFromSpriteSheet(y*SQUARE_WIDTH+40, x*SQUARE_HEIGHT+70, SQUARE_WIDTH, SQUARE_HEIGHT);
                 icon = new ImageIcon(image);
                 button.setIcon(icon);
-                button.setBounds(xLoc*SQUARE_WIDTH-xLoc, yLoc*SQUARE_HEIGHT-15*yLoc, SQUARE_WIDTH, SQUARE_HEIGHT);
+                button.setBounds(xLoc*SQUARE_WIDTH+20*xLoc+15, yLoc*SQUARE_HEIGHT-17*yLoc+15, SQUARE_WIDTH, SQUARE_HEIGHT);
                 // button = new JButton(icon);
                 // buttonList.add(button);
                 }
