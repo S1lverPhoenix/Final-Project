@@ -35,7 +35,7 @@ public class GameFrame extends JFrame {
 		// {"Carrots", "0"}, {"Eggs", "0"}, {"Hot Dogs", "0"}, {"Banana", "0"}, {"Muffins", "0"}
 		// };
 
-		private void setUpPrices(){
+		private void setUpCount(){
 			int count = 0;
 		for(int r = 0; r<items.getNames().length; r++){
 			for(int c = 0; c<5; c++){
@@ -46,14 +46,6 @@ public class GameFrame extends JFrame {
 			}
 		}
 	}
-	// private void reCountPrices(){
-	// 	for(int r = 0; r<groceryNamesTable.length; r++){
-	// 		for(int c = 0; c<groceryNamesTable[0].length; c++){
-	// 			groceryNamesTable[r][c]
-	// 		}
-	// 	}
-	// }
-
 	
 	String[] groceryHeader = { "Item", "Count" };
 
@@ -84,7 +76,7 @@ public class GameFrame extends JFrame {
 			g.drawImage(img, 0,0,null);
 			//g.drawImage(sprite, 100,100, null);
 			//grid.draw(g);
-			setUpPrices();
+			setUpCount();
 			repaint();
 		}
 	};
@@ -130,7 +122,7 @@ public class GameFrame extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-		setUpPrices();
+		setUpCount();
 		for(JButton button:items.getButtons()){
 			panel.add(button);
 		}
@@ -142,15 +134,7 @@ public class GameFrame extends JFrame {
 		// setting up the cartPanel
 		DefaultTableModel model = new DefaultTableModel(groceryNamesTable, groceryHeader);
 		JTable groceryTable = new JTable(model);
-		groceryTable.setPreferredScrollableViewportSize(new Dimension(450,85)); //63
-		groceryTable.setFillsViewportHeight(true);
-		// to add scrollbar
-		JScrollPane js=new JScrollPane(groceryTable);
-		js.setVisible(true);
-		cartPanel.add(js);
-		cartPanel.add(new JScrollPane(groceryTable));
-		cartPanel.setPreferredSize(new Dimension(WIDTH, 200));
-
+		setTable(groceryTable);
 
 		// add the panel to the frame
 		this.add(panel, BorderLayout.CENTER);
@@ -162,7 +146,7 @@ public class GameFrame extends JFrame {
 		timer = new Timer(REFRESH, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				setUpPrices();
+				setUpCount();
 				game.updateGame();
 				panel.repaint();
 			}
@@ -179,7 +163,16 @@ public class GameFrame extends JFrame {
 	}
 	private void fillItems() {
 	}
-	private void resetPrices(){
+	private void setTable(JTable jt){
+		
+		jt.setPreferredScrollableViewportSize(new Dimension(450,85)); //63
+		jt.setFillsViewportHeight(true);
+		// to add scrollbar
+		JScrollPane js=new JScrollPane(jt);
+		js.setVisible(true);
+		cartPanel.add(js);
+		cartPanel.add(new JScrollPane(jt));
+		cartPanel.setPreferredSize(new Dimension(WIDTH, 200));
 
 	}
 }
