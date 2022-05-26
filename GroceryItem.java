@@ -24,7 +24,7 @@ public class GroceryItem {
     // private ArrayList<JButton> buttonList = new ArrayList<>();
     private static final int SQUARE_HEIGHT = 59; //59
 	private static final int SQUARE_WIDTH = 87; //87
-    private int itemCount = 6;
+    private int itemCount;
 	private static String[][] names = {{"Pineapples", "Bread", "Yogurt", "Berries", "PB"}, 
                                         {"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, 
                                         {"Macaroni", "Apples", "Hamburger", "Peanuts", "Milk"},
