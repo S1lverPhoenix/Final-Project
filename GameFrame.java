@@ -53,7 +53,7 @@ public class GameFrame extends JFrame {
 	
 	//change dimensions to make it bigger to fit the count of the items of what the user clicked in the bottom:
 	//name, price, count of how many times each item is clicked
-	public static final int WIDTH = 700, HEIGHT = 700, REFRESH = 40;
+	public static final int WIDTH = 600, HEIGHT = 700, REFRESH = 40;
 	// private void init(){
 	// 	BufferedImage loader = new BufferedImage();
 	// 	BufferedImage spriteSheet = null; 
@@ -128,7 +128,7 @@ public class GameFrame extends JFrame {
 		}
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-		this.setResizable(true);
+		this.setResizable(false);
 
 
 		// setting up the cartPanel
