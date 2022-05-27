@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import java.awt.Image;
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.JPanel;
+import javax.swing.JPanel; 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JLabel;
@@ -23,8 +23,13 @@ public class GameFrame extends JFrame {
 	private int prints = 0;
 	private Game game = new Game();
 	private Image img;
+<<<<<<< Updated upstream
 	private GroceryList items ;//= new GroceryList();
 	private JPanel p;
+=======
+	private GroceryList items = new GroceryList();
+	JPanel p =new JPanel();
+>>>>>>> Stashed changes
 	private String[][] groceryNamesTable = 	new String[25][1];
 	DefaultTableModel model ;//= new DefaultTableModel(groceryNamesTable, groceryHeader);
 	JTable groceryTable ;
@@ -38,18 +43,34 @@ public class GameFrame extends JFrame {
 
 		public void setUpCount(){
 			int count = 0;
-		for(int r = 0; r<items.getNames().length; r++){
-			for(int c = 0; c<5; c++){
+			for(int r = 0; r<items.getNames().length; r++){
+				for(int c = 0; c<5; c++){
 				String[] temp = {items.getNames()[r][c], items.getItems().get(count).itemCountString()};
 				//System.out.println(temp.toString());
 				groceryNamesTable[count] = temp; 
 				count++;
+				}
 			}
 		}
+<<<<<<< Updated upstream
 		model = new DefaultTableModel(groceryNamesTable, groceryHeader);
 		groceryTable.setModel(model);
 		repaint();
 	}
+=======
+		//create a new JPanel
+		//print out the count & name
+
+
+	// private void reCountPrices(){
+	// 	for(int r = 0; r<groceryNamesTable.length; r++){
+	// 		for(int c = 0; c<groceryNamesTable[0].length; c++){
+	// 			groceryNamesTable[r][c]
+	// 		}
+	// 	}
+	// }
+
+>>>>>>> Stashed changes
 	
 	String[] groceryHeader = { "Item", "Count" };
 
@@ -134,13 +155,26 @@ public class GameFrame extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		this.setResizable(true);
-
-
+	
 		// setting up the cartPanel
+<<<<<<< Updated upstream
 		 
 		groceryTable = new JTable(model);
 		setTable(groceryTable);
 		setUpCount();
+=======
+		DefaultTableModel model = new DefaultTableModel(groceryNamesTable, groceryHeader);
+		JTable groceryTable = new JTable(model);
+		groceryTable.setPreferredScrollableViewportSize(new Dimension(450,85)); //63
+		groceryTable.setFillsViewportHeight(true);
+		// to add scrollbar
+		JScrollPane js=new JScrollPane(groceryTable);
+		js.setVisible(true);
+		cartPanel.add(js);
+		cartPanel.add(new JScrollPane(groceryTable));
+		cartPanel.setPreferredSize(new Dimension(WIDTH, 200));
+
+>>>>>>> Stashed changes
 		// add the panel to the frame
 		this.add(panel, BorderLayout.CENTER);
 
@@ -162,10 +196,11 @@ public class GameFrame extends JFrame {
 		this.setSize(WIDTH, HEIGHT);
 		panel.requestFocusInWindow();
 
-        
-
 		System.out.println("Panel set up complete");
 	}
+
+
+	
 	private void fillItems() {
 	}
 	private void setTable(JTable jt){
