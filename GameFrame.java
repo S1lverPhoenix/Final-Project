@@ -23,13 +23,8 @@ public class GameFrame extends JFrame {
 	private int prints = 0;
 	private Game game = new Game();
 	private Image img;
-<<<<<<< Updated upstream
 	private GroceryList items ;//= new GroceryList();
-	private JPanel p;
-=======
-	private GroceryList items = new GroceryList();
 	JPanel p =new JPanel();
->>>>>>> Stashed changes
 	private String[][] groceryNamesTable = 	new String[25][1];
 	DefaultTableModel model ;//= new DefaultTableModel(groceryNamesTable, groceryHeader);
 	JTable groceryTable ;
@@ -51,26 +46,11 @@ public class GameFrame extends JFrame {
 				count++;
 				}
 			}
-		}
-<<<<<<< Updated upstream
 		model = new DefaultTableModel(groceryNamesTable, groceryHeader);
 		groceryTable.setModel(model);
 		repaint();
 	}
-=======
-		//create a new JPanel
-		//print out the count & name
 
-
-	// private void reCountPrices(){
-	// 	for(int r = 0; r<groceryNamesTable.length; r++){
-	// 		for(int c = 0; c<groceryNamesTable[0].length; c++){
-	// 			groceryNamesTable[r][c]
-	// 		}
-	// 	}
-	// }
-
->>>>>>> Stashed changes
 	
 	String[] groceryHeader = { "Item", "Count" };
 
@@ -78,7 +58,7 @@ public class GameFrame extends JFrame {
 	
 	//change dimensions to make it bigger to fit the count of the items of what the user clicked in the bottom:
 	//name, price, count of how many times each item is clicked
-	public static final int WIDTH = 700, HEIGHT = 700, REFRESH = 40;
+	public static final int WIDTH = 600, HEIGHT = 700, REFRESH = 40;
 	// private void init(){
 	// 	BufferedImage loader = new BufferedImage();
 	// 	BufferedImage spriteSheet = null; 
@@ -156,13 +136,15 @@ public class GameFrame extends JFrame {
 		panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		this.setResizable(true);
 	
+		this.setResizable(false);
+
+
 		// setting up the cartPanel
-<<<<<<< Updated upstream
 		 
 		groceryTable = new JTable(model);
 		setTable(groceryTable);
 		setUpCount();
-=======
+
 		DefaultTableModel model = new DefaultTableModel(groceryNamesTable, groceryHeader);
 		JTable groceryTable = new JTable(model);
 		groceryTable.setPreferredScrollableViewportSize(new Dimension(450,85)); //63
@@ -174,7 +156,6 @@ public class GameFrame extends JFrame {
 		cartPanel.add(new JScrollPane(groceryTable));
 		cartPanel.setPreferredSize(new Dimension(WIDTH, 200));
 
->>>>>>> Stashed changes
 		// add the panel to the frame
 		this.add(panel, BorderLayout.CENTER);
 
