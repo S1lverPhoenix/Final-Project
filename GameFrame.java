@@ -23,10 +23,11 @@ public class GameFrame extends JFrame {
 	private int prints = 0;
 	private Game game = new Game();
 	private Image img;
-	private GroceryList items = new GroceryList();
+	private GroceryList items ;//= new GroceryList();
 	private JPanel p;
 	private String[][] groceryNamesTable = 	new String[25][1];
-
+	DefaultTableModel model ;//= new DefaultTableModel(groceryNamesTable, groceryHeader);
+	JTable groceryTable ;
 	//{
 		// {"Pineapples", "0"}, {"Bread", "0"}, {"Yogurt", "0"}, {"Strawberries", "0"}, {"Peanut Butter", "0"},
 		// {"Pudding", "0"}, {"Tuna", "0"}, {"Cookies", "0"}, {"Pretzels", "0"}, {"Potatoes", "0"},
@@ -35,7 +36,7 @@ public class GameFrame extends JFrame {
 		// {"Carrots", "0"}, {"Eggs", "0"}, {"Hot Dogs", "0"}, {"Banana", "0"}, {"Muffins", "0"}
 		// };
 
-		private void setUpCount(){
+		public void setUpCount(){
 			int count = 0;
 		for(int r = 0; r<items.getNames().length; r++){
 			for(int c = 0; c<5; c++){
@@ -45,6 +46,9 @@ public class GameFrame extends JFrame {
 				count++;
 			}
 		}
+		model = new DefaultTableModel(groceryNamesTable, groceryHeader);
+		groceryTable.setModel(model);
+		repaint();
 	}
 	
 	String[] groceryHeader = { "Item", "Count" };
@@ -103,6 +107,7 @@ public class GameFrame extends JFrame {
 
 	public GameFrame(String string) {
 		super(string);
+		items = new GroceryList(this);
 		setUpStuff();
 	}
 
@@ -122,7 +127,7 @@ public class GameFrame extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-		setUpCount();
+		
 		for(JButton button:items.getButtons()){
 			panel.add(button);
 		}
@@ -132,10 +137,10 @@ public class GameFrame extends JFrame {
 
 
 		// setting up the cartPanel
-		DefaultTableModel model = new DefaultTableModel(groceryNamesTable, groceryHeader);
-		JTable groceryTable = new JTable(model);
+		 
+		groceryTable = new JTable(model);
 		setTable(groceryTable);
-
+		setUpCount();
 		// add the panel to the frame
 		this.add(panel, BorderLayout.CENTER);
 
