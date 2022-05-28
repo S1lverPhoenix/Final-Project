@@ -48,43 +48,37 @@ public class Game {
 		if(sum-100>=0){
 			sum-=100;
 			count++;
-			correctBills.add(0, count);
-		
 		}
+		correctBills.add(0, count);
 		if(sum-50>=0){
 			sum-=50;
 			count++;
-			correctBills.add(0, count);
-			
 		}
+		correctBills.add(0, count);
 		if(sum-20>=0){
 			while(sum-20>=0 && count<=2){
 				sum-=20;
 				count++;
 			}
-			correctBills.add(0, count);
-			
 		}
+		correctBills.add(0, count);
 		if(sum-10>=0){
 			sum-=10;
 			count++;
-			correctBills.add(0, count);
-			
 		}
+		correctBills.add(0, count);
 		if(sum-5>=0){
 			sum-=5;
 			count++;
-			correctBills.add(0, count);
-		
 		}
+		correctBills.add(0, count);
 		if(sum-1>=0){
 			while(sum-1>=0 && count<=4){
 				sum-=1;
 				count++;
 			}
-			correctBills.add(0, count);
-			
 		}
+		correctBills.add(0, count);
 	}
 	return correctBills;
 }
