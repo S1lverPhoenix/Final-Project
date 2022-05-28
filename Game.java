@@ -5,8 +5,8 @@ import java.awt.Toolkit;
 import java.awt.Image;
 
 public class Game {
-	// private Money money = new Money();
-	// private Calculator calculator = new Calculator();
+	private Money money = new Money(this);
+	private Calculator calculator = new Calculator();
 	private ArrayList<GroceryItem> items = new ArrayList<>();
 	//private Image img = Toolkit.getDefaultTookkit().getImage("shelf.jpeg");
     public Game(){
