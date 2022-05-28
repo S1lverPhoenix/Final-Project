@@ -25,8 +25,10 @@ public class Game {
 	// }
 	public boolean gameOver(){
 		for(int i=0; i<checkDollarBills().size(); i++){
-			if(checkDollarBills().get(i)!=money.getBills().get(i)){
+			if(money.getBills().get(i)!=checkDollarBills().get(i)){
+				System.out.println("works");
 				return false;
+			
 			}
 		}
 		return true;	
@@ -45,14 +47,14 @@ public class Game {
 		if(sum-100>=0){
 			sum-=100;
 			count++;
-			correctBills.add(count);
-			break;
+			correctBills.add(i, count);
+		
 		}
 		if(sum-50>=0){
 			sum-=50;
 			count++;
-			correctBills.add(count);
-			break;
+			correctBills.add(i, count);
+			
 		}
 
 		if(sum-20>=0){
@@ -60,28 +62,28 @@ public class Game {
 				sum-=20;
 				count++;
 			}
-			correctBills.add(count);
-			break;
+			correctBills.add(i, count);
+			
 		}
 		if(sum-10>=0){
 			sum-=10;
 			count++;
-			correctBills.add(count);
-			break;
+			correctBills.add(i, count);
+			
 		}
 		if(sum-5>=0){
 			sum-=5;
 			count++;
-			correctBills.add(count);
-			break;
+			correctBills.add(i, count);
+		
 		}
 		if(sum-1>=0){
 			while(sum-1>=0 && count<=4){
 				sum-=1;
 				count++;
 			}
-			correctBills.add(count);
-			break;
+			correctBills.add(i, count);
+			
 		}
 	}
 	return correctBills;
