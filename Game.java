@@ -43,51 +43,46 @@ public class Game {
 			sum+= g.calcTotalValue();
 		}
 		for(int i=0; i<=money.getBills().size(); i++){
-		int tracker = 0;
-		count=0;
+		//int tracker = 0;
+		count=money.getBills().size()-1;
 		if(sum-100>=0){
 			sum-=100;
 			count++;
-			correctBills.add(tracker, count);
+			correctBills.add(0, count);
 		
 		}
-		tracker++;
 		if(sum-50>=0){
 			sum-=50;
 			count++;
-			correctBills.add(tracker, count);
+			correctBills.add(0, count);
 			
 		}
-		tracker++;
 		if(sum-20>=0){
 			while(sum-20>=0 && count<=2){
 				sum-=20;
 				count++;
 			}
-			correctBills.add(tracker, count);
+			correctBills.add(0, count);
 			
 		}
-		tracker++;
 		if(sum-10>=0){
 			sum-=10;
 			count++;
-			correctBills.add(tracker, count);
+			correctBills.add(0, count);
 			
 		}
-		tracker++;
 		if(sum-5>=0){
 			sum-=5;
 			count++;
-			correctBills.add(tracker, count);
+			correctBills.add(0, count);
 		
 		}
-		tracker++;
 		if(sum-1>=0){
 			while(sum-1>=0 && count<=4){
 				sum-=1;
 				count++;
 			}
-			correctBills.add(tracker, count);
+			correctBills.add(0, count);
 			
 		}
 	}
