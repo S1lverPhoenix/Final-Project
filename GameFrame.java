@@ -1,25 +1,16 @@
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.PropertyChangeListener;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.awt.Image;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.JPanel;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import javax.swing.table.DefaultTableModel;
 
 public class GameFrame extends JFrame {
-	// private BufferedImage sprite;
 	private int prints = 0;
 	private Game game = new Game();
 	private Image img;
@@ -36,7 +27,7 @@ public class GameFrame extends JFrame {
 		// };
 
 		private void setUpCount(){
-			int count = 0;
+		int count = 0;
 		for(int r = 0; r<items.getNames().length; r++){
 			for(int c = 0; c<5; c++){
 				String[] temp = {items.getNames()[r][c], items.getItems().get(count).itemCountString()};
@@ -54,17 +45,7 @@ public class GameFrame extends JFrame {
 	//change dimensions to make it bigger to fit the count of the items of what the user clicked in the bottom:
 	//name, price, count of how many times each item is clicked
 	public static final int WIDTH = 700, HEIGHT = 700, REFRESH = 40;
-	// private void init(){
-	// 	BufferedImage loader = new BufferedImage();
-	// 	BufferedImage spriteSheet = null; 
-	// 	try{
-	// 		spriteSheet = loader.loadImg("food.jpg");
-	// 	} 
-	// 	catch(IOException e){
-	// 		Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-	// 	}
-	// 	SpriteSheet ss = new SpriteSheet(spriteSheet);
-	// 	sprite= ss.getSprite(0,0, 20, 40);
+	
 	
 	// where the game objects are displayed
 
@@ -72,7 +53,8 @@ public class GameFrame extends JFrame {
 	private JPanel panel = new JPanel() {
 		@Override 
 		public void paintComponent(Graphics g) {
-			super.paintComponent(g);
+			
+				super.paintComponent(g);
 			g.drawImage(img, 0,0,null);
 			//g.drawImage(sprite, 100,100, null);
 			//grid.draw(g);
@@ -104,7 +86,8 @@ public class GameFrame extends JFrame {
 	public GameFrame(String string) {
 		super(string);
 		setUpStuff();
-	}
+		
+		}
 
     /**
 	 * Sets up the panel, timer, other initial objects in the game.
@@ -130,7 +113,6 @@ public class GameFrame extends JFrame {
 		panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		this.setResizable(true);
 
-
 		// setting up the cartPanel
 		DefaultTableModel model = new DefaultTableModel(groceryNamesTable, groceryHeader);
 		JTable groceryTable = new JTable(model);
@@ -141,13 +123,13 @@ public class GameFrame extends JFrame {
 
 		// add the cartpanel to the frame
 		this.add(cartPanel, BorderLayout.SOUTH);
-		
 		this.pack();
+
 		timer = new Timer(REFRESH, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				setUpCount();
-				game.updateGame();
+				//game.updateGame();
 				panel.repaint();
 			}
 		});

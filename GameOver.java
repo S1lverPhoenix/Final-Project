@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 public class GameOver implements ActionListener{
     JFrame congrats;
     private Image img;
-    private Calculator calculator = new Calculator();
+    //private Calculator calculator = new Calculator();
     private Money money = new Money();
     JButton[] button =new JButton[1];
     JButton tryAgainButton = new JButton("Try Again!");
@@ -26,10 +26,7 @@ public class GameOver implements ActionListener{
         congrats.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         congrats.setSize(500, 500);
         congrats.setLayout(null);
-        
-
-
-        if(money.getTotalDollars()>=calculator.getNum1() && money.getTotalDollars()<= calculator.getNum1()+1){
+       
             try {
             File f = new File("Images/gameover.png");
             img = ImageIO.read(f);
@@ -37,7 +34,7 @@ public class GameOver implements ActionListener{
             e.printStackTrace();
             }
             g.drawImage(img, 100, 100, null);
-        }
+        
 
             tryAgainButton = new JButton("Try Again!");
             button[0] = tryAgainButton;

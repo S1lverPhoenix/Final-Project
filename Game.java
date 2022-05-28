@@ -1,53 +1,93 @@
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.File;
 import java.awt.Toolkit;
 import java.awt.Image;
 
 public class Game {
-	// private Money money = new Money();
-	// private Calculator calculator = new Calculator();
+	
+	private Calculator calculator = new Calculator();
 	private ArrayList<GroceryItem> items = new ArrayList<>();
-	//private Image img = Toolkit.getDefaultTookkit().getImage("shelf.jpeg");
+	private Image img;
+	private Money money = new Money();
     public Game(){
         
     }
     
-	public void GameOver(){
-		double sum = 0;
-		//if the value of the amount paid was greater than or equal to the correct value of the items +4 then we want to proceed
+	// public void GameOver(){
+	// 	double sum = 0;
+	// 	//if the value of the amount paid was greater than or equal to the correct value of the items +4 then we want to proceed
+		
+	// }
+	public boolean gameOver(){
+		for(int i=0; i<checkDollarBills().size(); i++){
+			if(checkDollarBills().get(i)!=money.getBills().get(i)){
+				return false;
+			}
+		}
+		return true;	
+	}
+
+	private ArrayList checkDollarBills() {
+		ArrayList<Integer> correctBills = new ArrayList<Integer>();
+		int count;
+		double sum=0;
+		//gets the correct sum of the items in the grocery list to be compared later
 		for(GroceryItem g: items){
 			sum+= g.calcTotalValue();
 		}
-		checkDollarBills(sum);
-		
-	}
-
-	private void checkDollarBills(Double d) {
-		if(Money.getTotalDollars()<= d+4){
-			//open game over frame
-
+		for(int i=money.getBills().size()-1; i>=0; i--){
+			count=0;
+		if(sum-100>=0){
+			sum-=100;
+			count++;
+			correctBills.add(count);
+			break;
+		}
+		if(sum-50>=0){
+			sum-=50;
+			count++;
+			correctBills.add(count);
+			break;
 		}
 
+		if(sum-20>=0){
+			while(sum-20>=0 && count<=2){
+				sum-=20;
+				count++;
+			}
+			correctBills.add(count);
+			break;
+		}
+		if(sum-10>=0){
+			sum-=10;
+			count++;
+			correctBills.add(count);
+			break;
+		}
+		if(sum-5>=0){
+			sum-=5;
+			count++;
+			correctBills.add(count);
+			break;
+		}
+		if(sum-1>=0){
+			while(sum-1>=0 && count<=4){
+				sum-=1;
+				count++;
+			}
+			correctBills.add(count);
+			break;
+		}
 	}
+	return correctBills;
+}
 
-	/**
-	 * This is called every time the Timer goes off.  Right now, it moves all 
-	 * the Objects and checks for collisions.  This is common in games with flying
-	 * Objects.  You can do more, though.  Like add items or move to new screens
-	 * or check to see if the turn is over or...
-	 */
-	public void updateGame() {
-    //System.out.println("Stuff Happening!");
-		
-
-	}
-    /**
-	 * Right now I am checking for collisions between GameObjects
-	 */
-	public void checkIfSelected() {
-		
-	}
 
 
 	/**

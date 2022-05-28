@@ -1,11 +1,17 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.ImageIcon;
 
 public class Money extends JFrame implements ActionListener{
     JFrame frame;
-    
+    JFrame close;
+    JButton closeTab;
+    private Image img;
     JButton[] money = new JButton[7];
     JButton oneButton, fiveButton, tenButton, twentyButton, fiftyButton, hundredButton,amtTotal;
     private static int totalPaid;
@@ -13,12 +19,15 @@ public class Money extends JFrame implements ActionListener{
     private int oneC, fiveC, tenC, twentyC, fiftyC, hundredC;
 
     public Money() {
-        
         frame=new JFrame("Money");
         frame.setResizable(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1450,800);
         frame.setLayout(null);
+
+        close = new JFrame("Congrats!");
+        closeTab = new JButton("Click to Close!");
+        //close.set
 
         //setting dollar bills to buttons
         Icon one = new ImageIcon("Images/money/one.jpeg");
@@ -35,7 +44,7 @@ public class Money extends JFrame implements ActionListener{
         hundredButton= new JButton(hundred);
         
         //total value button
-        amtTotal=new JButton("Total");
+        amtTotal=new JButton("Check");
         amtTotal. setFont(new Font("Times New Roman", Font. PLAIN, 80));
 
         money[0]=oneButton;
@@ -102,17 +111,25 @@ public class Money extends JFrame implements ActionListener{
             totalPaid+=100;
             hundredC++;
         }
-        for(int i=0; i<1; i++){
-            //if there is a button corresponding to this source call
-            if(e.getSource()==amtTotal){
-                System.out.println("The Total amount paid was: "+ totalPaid);
-
-            }  
-            return;
-        } 
+        //if there is a button corresponding to this source call
+        if(e.getSource()==amtTotal){  
+            System.out.println("The Total amount paid was: "+ totalPaid);
+        }  
+        return;
     } 
     public static double getTotalDollars(){
         return totalPaid;
+    }
+   
+
+    public ArrayList getBills(){
+        ArrayList<Integer> dollarCount = new ArrayList <Integer>();
+        dollarCount.add(oneC);
+        dollarCount.add(fiveC);
+        dollarCount.add(tenC);
+        dollarCount.add(twentyC);
+        dollarCount.add(hundredC);
+        return dollarCount;
     }
    
 }
