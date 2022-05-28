@@ -17,8 +17,11 @@ public class Money extends JFrame implements ActionListener{
     private static int totalPaid;
     private double amount;
     private int oneC, fiveC, tenC, twentyC, fiftyC, hundredC;
+    private Game game;
 
-    public Money() {
+    public Money(Game g) {
+        game = g;
+        
         frame=new JFrame("Money");
         frame.setResizable(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

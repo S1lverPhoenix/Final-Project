@@ -10,11 +10,10 @@ import java.awt.Toolkit;
 import java.awt.Image;
 
 public class Game {
-	
+	private Money money = new Money(this);
 	private Calculator calculator = new Calculator();
 	private ArrayList<GroceryItem> items = new ArrayList<>();
 	private Image img;
-	private Money money = new Money();
     public Game(){
         
     }

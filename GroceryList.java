@@ -14,13 +14,14 @@ public class GroceryList {
 	private ArrayList<JButton> buttonList= new ArrayList<>();
 	private JButton button;
 	private double totalPrice;
+	private GameFrame gf;
 
 	private static String[][] names = {
 	{"Pineapples", "Bread", "Yogurt", "Berries", "PB"}, 
-	{"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, 
-	{"Macaroni", "Apples", "Hamburger", "Peanuts", "Milk"},
+	{"Pudding", "Fish", "Cookies", "Pretzels", "Potatoes"}, 
+	{"Macaroni", "Apples", "Burgers", "Peanuts", "Milk"},
 	{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, 
-	{"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}
+	{"Carrots", "Eggs", "Hot Dogs", "Bananas", "Muffins"}
 	};
 
 	private static Double[][] prices = {
@@ -31,7 +32,9 @@ public class GroceryList {
 		{3.45, 4.54, 7.45, 2.15, 2.25}
 	};
     //show the price of each item too
-
+	public GroceryList(GameFrame gf){
+		this.gf = gf;
+	}
 	public ArrayList<GroceryItem> getItems(){
 		return groceryItems;
 	}
@@ -61,7 +64,7 @@ public class GroceryList {
 						gi.incrementItemCount();
 						totalPrice+=gi.getPrice();
 						System.out.println(gi.toString());
-						
+						gf.setUpCount();
 					}
 
 				});
