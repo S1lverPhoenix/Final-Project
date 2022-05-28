@@ -145,8 +145,8 @@ public class GameFrame extends JFrame {
 		setTable(groceryTable);
 		setUpCount();
 
-		DefaultTableModel model = new DefaultTableModel(groceryNamesTable, groceryHeader);
-		JTable groceryTable = new JTable(model);
+		// DefaultTableModel model = new DefaultTableModel(groceryNamesTable, groceryHeader);
+		// JTable groceryTable = new JTable(model);
 		groceryTable.setPreferredScrollableViewportSize(new Dimension(450,85)); //63
 		groceryTable.setFillsViewportHeight(true);
 		// to add scrollbar
