@@ -18,10 +18,10 @@ public class GroceryList {
 
 	private static String[][] names = {
 	{"Pineapples", "Bread", "Yogurt", "Berries", "PB"}, 
-	{"Pudding", "Tuna", "Cookies", "Pretzels", "Potatoes"}, 
-	{"Macaroni", "Apples", "Hamburger", "Peanuts", "Milk"},
+	{"Pudding", "Fish", "Cookies", "Pretzels", "Potatoes"}, 
+	{"Macaroni", "Apples", "Burgers", "Peanuts", "Milk"},
 	{ "Cheese", "Chips", "Cereal", "Broccoli", "Eggplant"}, 
-	{"Carrots", "Eggs", "Hot Dogs", "Banana", "Muffins"}
+	{"Carrots", "Eggs", "Hot Dogs", "Bananas", "Muffins"}
 	};
 
 	private static Double[][] prices = {
