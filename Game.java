@@ -28,7 +28,6 @@ public class Game {
 			if(money.getBills().get(i)!=checkDollarBills().get(i)){
 				System.out.println("works");
 				return false;
-			
 			}
 		}
 		return true;	
