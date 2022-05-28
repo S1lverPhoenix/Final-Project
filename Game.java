@@ -26,11 +26,12 @@ public class Game {
 	public boolean gameOver(){
 		for(int i=0; i<checkDollarBills().size(); i++){
 			if(money.getBills().get(i)!=checkDollarBills().get(i)){
-				System.out.println("works");
+				
 				return false;
 			
 			}
 		}
+		System.out.println("This works!");
 		return true;	
 	}
 

@@ -116,6 +116,7 @@ public class Money extends JFrame implements ActionListener{
         //if there is a button corresponding to this source call
         if(e.getSource()==amtTotal){  
             if(game.gameOver()){
+            System.out.println("works!");
             System.out.println("The Total amount paid was: "+ totalPaid);
             }
         }  
