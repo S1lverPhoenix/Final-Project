@@ -6,7 +6,7 @@ import javax.swing.*;
 public class Calculator extends JFrame implements ActionListener{
     JFrame frame;
     JTextField textfield;
-    JButton[] numberButtons= new JButton[9];
+    JButton[] functionButtons= new JButton[9];
     JButton[] x= new JButton[10];
     JButton addButton, subButton, multButton, divButton;
     JButton decButton, equButton, delButton,clearButton,negButton;
@@ -17,7 +17,7 @@ public class Calculator extends JFrame implements ActionListener{
 
     private double num1=0;
     private double num2=0;
-    protected static double value=0;
+    private static double value=0;
     
     char operator;
     public double getNum1(){
@@ -44,22 +44,22 @@ public class Calculator extends JFrame implements ActionListener{
         clearButton=new JButton("clear");
         negButton= new JButton("(-)");
 
-        numberButtons[0]=addButton;
-        numberButtons[1]=subButton;
-        numberButtons[2]=multButton;
-        numberButtons[3]=divButton;
-        numberButtons[4]=decButton;
-        numberButtons[5]=equButton;
-        numberButtons[6]=delButton;
-        numberButtons[7]=clearButton;
-        numberButtons[8]=negButton;
+        functionButtons[0]=addButton;
+        functionButtons[1]=subButton;
+        functionButtons[2]=multButton;
+        functionButtons[3]=divButton;
+        functionButtons[4]=decButton;
+        functionButtons[5]=equButton;
+        functionButtons[6]=delButton;
+        functionButtons[7]=clearButton;
+        functionButtons[8]=negButton;
 
         for(int i=0; i<9; i++){
-            numberButtons[i].addActionListener(this);
-            numberButtons[i].setFont(myfont);
-            numberButtons[i].setFocusable(false);
-            numberButtons[i].setBackground(Color.BLACK);
-            numberButtons[i].setForeground(Color.BLACK);
+            functionButtons[i].addActionListener(this);
+            functionButtons[i].setFont(myfont);
+            functionButtons[i].setFocusable(false);
+            functionButtons[i].setBackground(Color.BLACK);
+            functionButtons[i].setForeground(Color.BLACK);
 
         }
         //numbers
