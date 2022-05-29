@@ -12,10 +12,10 @@ import java.awt.Image;
 public class Game {
 	private Money money = new Money(this);
 	private Calculator calculator = new Calculator();
-	private ArrayList<GroceryItem> items = new ArrayList<>();
+	private GroceryList items;
 	private Image img;
-    public Game(){
-        
+    public Game(GroceryList algi){
+        items = algi;
     }
     
 	// public void GameOver(){
@@ -26,7 +26,9 @@ public class Game {
 	public boolean gameOver(){
 		for(int i=0; i<checkDollarBills().size(); i++){
 			if(money.getBills().get(i)!=checkDollarBills().get(i)){
-				
+				System.out.println("Wrong!! Try Again");
+				System.out.println(money.getBills().toString());
+				System.out.println(checkDollarBills().toString());
 				return false;
 			}
 		}
@@ -36,25 +38,25 @@ public class Game {
 
 	private ArrayList checkDollarBills() {
 		ArrayList<Integer> correctBills = new ArrayList<Integer>();
-		int count;
+		int count = 0;
 		double sum=0;
 		//gets the correct sum of the items in the grocery list to be compared later
-		for(GroceryItem g: items){
-			sum+= g.calcTotalValue();
-		}
-		for(int i=0; i<=money.getBills().size(); i++){
+		sum = items.getSum();
+		//for(int i=0; i<=money.getBills().size(); i++){
 		//int tracker = 0;
-		count=money.getBills().size()-1;
 		if(sum-100>=0){
 			sum-=100;
 			count++;
 		}
 		correctBills.add(0, count);
+		count = 0;
 		if(sum-50>=0){
 			sum-=50;
 			count++;
 		}
 		correctBills.add(0, count);
+		count = 0;
+
 		if(sum-20>=0){
 			while(sum-20>=0 && count<=2){
 				sum-=20;
@@ -62,24 +64,28 @@ public class Game {
 			}
 		}
 		correctBills.add(0, count);
+		count = 0;
 		if(sum-10>=0){
 			sum-=10;
 			count++;
 		}
 		correctBills.add(0, count);
+		count = 0;
 		if(sum-5>=0){
 			sum-=5;
 			count++;
 		}
 		correctBills.add(0, count);
-		if(sum-1>=0){
-			while(sum-1>=0 && count<=4){
+		count = 0;
+		if(sum-1>=-1){
+			while(sum-1>=-1 && count<=4){
 				sum-=1;
 				count++;
 			}
 		}
 		correctBills.add(0, count);
-	}
+		count = 0;
+	//}
 	return correctBills;
 }
 
@@ -94,7 +100,7 @@ public class Game {
     public void drawTheGame(Graphics g) {
 		//snake.draw(g);
 		// items is currently empty - nothing will be printed out
-		for(GroceryItem go:items) {
+		for(GroceryItem go:items.getItems()) {
 			//System.out.println("Listing items in Game object: " + go);
 			go.draw(g);
 		}

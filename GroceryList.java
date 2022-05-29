@@ -44,6 +44,13 @@ public class GroceryList {
 	public Double[][] getPrices(){
 		return prices;
 	}
+	public Double getSum(){
+		double total = 0;
+		for(GroceryItem gi: groceryItems){
+			total+=gi.calcTotalValue();
+		}
+		return total;
+	}
 	public void makeGroceryList(){
 		int count = 0;
 		for(int x = 0; x<names.length; x++){

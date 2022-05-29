@@ -133,6 +133,7 @@ public class Money extends JFrame implements ActionListener{
         dollarCount.add(fiveC);
         dollarCount.add(tenC);
         dollarCount.add(twentyC);
+        dollarCount.add(fiftyC);
         dollarCount.add(hundredC);
         return dollarCount;
     }

@@ -12,9 +12,10 @@ import javax.swing.table.DefaultTableModel;
 
 public class GameFrame extends JFrame {
 	private int prints = 0;
-	private Game game = new Game();
 	private Image img;
-	private GroceryList items ;//= new GroceryList();
+	private GroceryList items ;
+	private Game game;
+	//= new GroceryList();
 	JPanel p =new JPanel();
 	private String[][] groceryNamesTable = 	new String[25][1];
 	DefaultTableModel model ;//= new DefaultTableModel(groceryNamesTable, groceryHeader);
@@ -115,6 +116,7 @@ public class GameFrame extends JFrame {
 		panel.setLayout(null);
 		System.out.println("Setting up");
 		items.makeGroceryList();
+		game = new Game(items);
 		try {
             File f = new File("Images/shelf.jpeg");
             img = ImageIO.read(f);
