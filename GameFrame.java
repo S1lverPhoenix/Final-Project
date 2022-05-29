@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 public class GameFrame extends JFrame {
 	private int prints = 0;
 	private Image img;
-	private GroceryList items ;
+	private GroceryList items;
 	private Game game;
 	//= new GroceryList();
 	JPanel p =new JPanel();
