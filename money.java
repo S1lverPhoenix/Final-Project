@@ -91,36 +91,39 @@ public class Money extends JFrame implements ActionListener{
             System.out.println("Five dollars have been paid!");
             totalPaid+=5;
             fiveC++;
+
         }
         if(e.getSource()==tenButton){
             System.out.println("Ten dollars have been paid!");
             totalPaid+=10;
             tenC++;
+
         }
         if(e.getSource()==twentyButton){
             System.out.println("Twenty dollars have been paid!");
             totalPaid+=20;
             twentyC++;
+
         }
         if(e.getSource()==fiftyButton){
             System.out.println("Fifty dollars have been paid!");
             totalPaid+=50;
             fiftyC++;
+
         }
         if(e.getSource()==hundredButton){
             System.out.println("A hundred dollars have been paid!");
             totalPaid+=100;
             hundredC++;
+
         }
         //if there is a button corresponding to this source call
         if(e.getSource()==amtTotal){  
             if(game.gameOver()){
-                JLabel congrats = new JLabel("Congratulations!!!!!");
-                congrats.setText("Congratulations!!!!!");
-
-                // System.out.println("works!");
-                // System.out.println("The Total amount paid was: "+ totalPaid);
+               System.out.println("Game Over!!");
+               game.restartWin();
             }
+            game.restartLose();
         }  
         return;
     } 
@@ -128,7 +131,9 @@ public class Money extends JFrame implements ActionListener{
         return totalPaid;
     }
    
-
+    public void deletePanel(){
+        frame.setVisible(false);
+    }
     public ArrayList getBills(){
         ArrayList<Integer> dollarCount = new ArrayList <Integer>();
         dollarCount.add(oneC);
@@ -137,6 +142,12 @@ public class Money extends JFrame implements ActionListener{
         dollarCount.add(twentyC);
         dollarCount.add(fiftyC);
         dollarCount.add(hundredC);
+        oneC = 0;
+        fiveC = 0;
+        tenC = 0;
+        twentyC = 0;
+        fiftyC = 0;
+        hundredC = 0;
         return dollarCount;
     }
    

@@ -35,6 +35,9 @@ public class GroceryList {
 	public GroceryList(GameFrame gf){
 		this.gf = gf;
 	}
+	public GameFrame getGF(){
+		return gf;
+	}
 	public ArrayList<GroceryItem> getItems(){
 		return groceryItems;
 	}

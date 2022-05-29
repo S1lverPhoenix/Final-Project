@@ -165,7 +165,6 @@ public class GameFrame extends JFrame {
 				panel.repaint();
 			}
 		});
-		fillItems();
 		timer.start();
 		this.setVisible(true);
 		this.setSize(WIDTH, HEIGHT);
@@ -174,10 +173,6 @@ public class GameFrame extends JFrame {
 		System.out.println("Panel set up complete");
 	}
 
-
-	
-	private void fillItems() {
-	}
 	private void setTable(JTable jt){
 		
 		jt.setPreferredScrollableViewportSize(new Dimension(450,85)); //63
@@ -189,5 +184,10 @@ public class GameFrame extends JFrame {
 		cartPanel.add(new JScrollPane(jt));
 		cartPanel.setPreferredSize(new Dimension(WIDTH, 200));
 
+	}
+	public void deletePanels(){
+		p.setVisible(false);
+		panel.setVisible(false);
+		cartPanel.setVisible(false);
 	}
 }

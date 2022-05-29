@@ -10,7 +10,7 @@ public class SwingGraphicsGame {
 	        SwingUtilities.invokeLater(new Runnable() {
 	            @Override
 	            public void run() {
-	                GameFrame wnd = new GameFrame("Dollar Up!");
+	                GameFrame wnd = new GameFrame("Framey");
 	                wnd.setVisible(true);
 	            }
 	        });
