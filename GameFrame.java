@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 public class GameFrame extends JFrame {
 	private int prints = 0;
 	private Image img;
-	private GroceryList items ;
+	private GroceryList items;
 	private Game game;
 	//= new GroceryList();
 	JPanel p =new JPanel();
@@ -165,7 +165,6 @@ public class GameFrame extends JFrame {
 				panel.repaint();
 			}
 		});
-		fillItems();
 		timer.start();
 		this.setVisible(true);
 		this.setSize(WIDTH, HEIGHT);
@@ -174,10 +173,6 @@ public class GameFrame extends JFrame {
 		System.out.println("Panel set up complete");
 	}
 
-
-	
-	private void fillItems() {
-	}
 	private void setTable(JTable jt){
 		
 		jt.setPreferredScrollableViewportSize(new Dimension(450,85)); //63
@@ -189,5 +184,20 @@ public class GameFrame extends JFrame {
 		cartPanel.add(new JScrollPane(jt));
 		cartPanel.setPreferredSize(new Dimension(WIDTH, 200));
 
+	}
+	public void deletePanels(){
+		p.setVisible(false);
+		panel.setVisible(false);
+		cartPanel.setVisible(false);
+		groceryTable.setVisible(false);
+		this.setVisible(false);
+	}
+
+	public void unDelete() {
+		p.setVisible(true);
+		panel.setVisible(true);
+		cartPanel.setVisible(true);
+		groceryTable.setVisible(true);
+		this.setVisible(true);
 	}
 }

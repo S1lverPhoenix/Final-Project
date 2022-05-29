@@ -1,17 +1,20 @@
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioFormat.Encoding;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
-import java.awt.Toolkit;
-import java.awt.Image;
 
 public class Game {
 	private Money money = new Money(this);
-	private Calculator calculator = new Calculator();
+	//private Calculator calculator = new Calculator();
 	private GroceryList items;
 	private Image img;
     public Game(GroceryList algi){
@@ -24,16 +27,61 @@ public class Game {
 		
 	// }
 	public boolean gameOver(){
-		for(int i=0; i<checkDollarBills().size(); i++){
-			if(money.getBills().get(i)!=checkDollarBills().get(i)){
+		ArrayList<Integer> bills = checkDollarBills();
+		ArrayList<Integer> moneyBills = money.getBills();
+		for(int i=0; i<bills.size(); i++){
+			if(moneyBills.get(i)!=bills.get(i)){
 				System.out.println("Wrong!! Try Again");
-				System.out.println(money.getBills().toString());
-				System.out.println(checkDollarBills().toString());
+				System.out.println(moneyBills.toString());
+				System.out.println(bills.toString());
 				return false;
 			}
 		}
 		System.out.println("This works!");
+
 		return true;	
+	}
+
+	public void restartWin(){
+
+		money.deletePanel();
+		items.getGF().deletePanels();
+		JFrame frame = new JFrame("Congratulations!!!!!!!!!!!!!");
+		JButton endGame = new JButton();
+		endGame.setText(" You Win!! Click here to quit :)");
+		endGame.setBounds(20, 20, 20, 20);
+		endGame.setBackground(Color.DARK_GRAY);
+		frame.add(endGame);
+		frame.setSize(300, 300);
+		frame.setVisible(true);
+		endGame.addActionListener(new ActionListener(){  
+			public void actionPerformed(ActionEvent e){  
+				System.exit(0);
+			}  
+		});  
+			
+		
+
+	}
+
+	public void restartLose(){
+		JFrame framey = new JFrame("Try Again :(");
+		JButton playAgain = new JButton("That's not quite right, click here to try again!");
+		playAgain.setBounds(20, 20, 20, 20);
+		framey.add(playAgain);
+		framey.setSize(300, 300);
+		money.deletePanel();
+		items.getGF().deletePanels();
+		framey.setVisible(true);
+		playAgain.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				money.unDelete();
+				items.getGF().unDelete();
+				framey.setVisible(false);				
+			}
+			
+		});
+		framey.dispose();
 	}
 
 	private ArrayList checkDollarBills() {
@@ -44,48 +92,48 @@ public class Game {
 		sum = items.getSum();
 		//for(int i=0; i<=money.getBills().size(); i++){
 		//int tracker = 0;
-		if(sum-100>=0){
+		if(sum-100>-1){
 			sum-=100;
 			count++;
 		}
 		correctBills.add(0, count);
 		count = 0;
-		if(sum-50>=0){
+		if(sum-50>-1){
 			sum-=50;
 			count++;
 		}
 		correctBills.add(0, count);
 		count = 0;
 
-		if(sum-20>=0){
-			while(sum-20>=0 && count<=2){
+		if(sum-20>-1){
+			while(sum-20>-1 && count<=2){
 				sum-=20;
 				count++;
 			}
 		}
 		correctBills.add(0, count);
 		count = 0;
-		if(sum-10>=0){
+		if(sum-10>-1){
 			sum-=10;
 			count++;
 		}
 		correctBills.add(0, count);
 		count = 0;
-		if(sum-5>=0){
+		if(sum-5>-1){
 			sum-=5;
 			count++;
 		}
 		correctBills.add(0, count);
 		count = 0;
-		if(sum-1>=-1){
-			while(sum-1>=-1 && count<=4){
+		if(sum-1>-1){
+			while(sum-1>-1 && count<=4){
 				sum-=1;
 				count++;
 			}
 		}
 		correctBills.add(0, count);
 		count = 0;
-	//}
+		
 	return correctBills;
 }
 
