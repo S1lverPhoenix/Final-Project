@@ -150,6 +150,10 @@ public class Money extends JFrame implements ActionListener{
         hundredC = 0;
         return dollarCount;
     }
+
+    public void unDelete() {
+        frame.setVisible(true);
+    }
    
 }
 

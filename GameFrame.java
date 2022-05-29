@@ -189,5 +189,15 @@ public class GameFrame extends JFrame {
 		p.setVisible(false);
 		panel.setVisible(false);
 		cartPanel.setVisible(false);
+		groceryTable.setVisible(false);
+		this.setVisible(false);
+	}
+
+	public void unDelete() {
+		p.setVisible(true);
+		panel.setVisible(true);
+		cartPanel.setVisible(true);
+		groceryTable.setVisible(true);
+		this.setVisible(true);
 	}
 }

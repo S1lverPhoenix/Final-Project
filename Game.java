@@ -1,13 +1,16 @@
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioFormat.Encoding;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
-import java.awt.Toolkit;
-import java.awt.Image;
 
 public class Game {
 	private Money money = new Money(this);
@@ -40,13 +43,45 @@ public class Game {
 	}
 
 	public void restartWin(){
+
 		money.deletePanel();
 		items.getGF().deletePanels();
+		JFrame frame = new JFrame("Congratulations!!!!!!!!!!!!!");
+		JButton endGame = new JButton();
+		endGame.setText(" You Win!! Click here to quit :)");
+		endGame.setBounds(20, 20, 20, 20);
+		endGame.setBackground(Color.DARK_GRAY);
+		frame.add(endGame);
+		frame.setSize(300, 300);
+		frame.setVisible(true);
+		endGame.addActionListener(new ActionListener(){  
+			public void actionPerformed(ActionEvent e){  
+				System.exit(0);
+			}  
+		});  
+			
+		
 
 	}
 
 	public void restartLose(){
-
+		JFrame framey = new JFrame("Try Again :(");
+		JButton playAgain = new JButton("That's not quite right, click here to try again!");
+		playAgain.setBounds(20, 20, 20, 20);
+		framey.add(playAgain);
+		framey.setSize(300, 300);
+		money.deletePanel();
+		items.getGF().deletePanels();
+		framey.setVisible(true);
+		playAgain.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				money.unDelete();
+				items.getGF().unDelete();
+				framey.setVisible(false);				
+			}
+			
+		});
+		framey.dispose();
 	}
 
 	private ArrayList checkDollarBills() {
