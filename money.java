@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.ImageIcon;
 
 public class Money extends JFrame implements ActionListener{
     JFrame frame;
@@ -116,8 +115,11 @@ public class Money extends JFrame implements ActionListener{
         //if there is a button corresponding to this source call
         if(e.getSource()==amtTotal){  
             if(game.gameOver()){
-            System.out.println("works!");
-            System.out.println("The Total amount paid was: "+ totalPaid);
+                JLabel congrats = new JLabel("Congratulations!!!!!");
+                congrats.setText("Congratulations!!!!!");
+
+                // System.out.println("works!");
+                // System.out.println("The Total amount paid was: "+ totalPaid);
             }
         }  
         return;
