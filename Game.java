@@ -81,7 +81,6 @@ public class Game {
 			}
 			
 		});
-		framey.dispose();
 	}
 
 	private ArrayList checkDollarBills() {

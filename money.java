@@ -31,18 +31,27 @@ public class Money extends JFrame implements ActionListener{
         //close.set
 
         //setting dollar bills to buttons
+        final int width = 30;
+        final int height = 100;
         Icon one = new ImageIcon("Images/money/one.jpeg");
         oneButton= new JButton(one);
+        //oneButton.setSize(width, height);
         Icon five = new ImageIcon("Images/money/five.jpeg");
         fiveButton= new JButton(five);
+        //fiveButton.setSize(width, height);
         Icon ten = new ImageIcon("Images/money/ten.jpeg");
         tenButton= new JButton(ten);
+        //tenButton.setSize(width, height);
         Icon twenty = new ImageIcon("Images/money/twenty.jpeg");
         twentyButton= new JButton(twenty);
+        //twentyButton.setSize(width, height);
         Icon fifty = new ImageIcon("Images/money/fifty.jpeg");
         fiftyButton= new JButton(fifty);
+        //fiftyButton.setSize(width, height);
         Icon hundred = new ImageIcon("Images/money/hundred.jpeg");
         hundredButton= new JButton(hundred);
+        //hundredButton.setSize(width, height);
+
         
         //total value button
         amtTotal=new JButton("Check");
@@ -123,7 +132,9 @@ public class Money extends JFrame implements ActionListener{
                System.out.println("Game Over!!");
                game.restartWin();
             }
-            game.restartLose();
+            else {
+                game.restartLose();
+            }
         }  
         return;
     } 
