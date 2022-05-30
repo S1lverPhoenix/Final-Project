@@ -1,9 +1,9 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.math.BigDecimal;
 
-
-public class Calculator extends JFrame implements ActionListener{
+public class Calculator implements ActionListener{
     JFrame frame;
     JTextField textfield;
     JButton[] functionButtons= new JButton[9];
@@ -171,19 +171,19 @@ public class Calculator extends JFrame implements ActionListener{
             num2=Double.parseDouble(textfield.getText());
             switch(operator){
                 case '+':
-                    value=num1+num2;
+                    value=Math.round((num1+num2)*100.0)/100.0;
                     break;
             
                 case '-':
-                    value=Math.abs(num1-num2);
+                    value=Math.round((num1-num2)*100.0)/100.0;
                     break;
 
                 case '*':
-                    value=num1*num2;
+                    value=(num1*num2);
                     break;
 
                 case'/':
-                    value=num1/num2;
+                    value=(num1/num2);
                     break;
             }
             textfield.setText(String.valueOf(value));

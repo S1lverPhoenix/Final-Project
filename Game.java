@@ -14,7 +14,7 @@ import java.io.File;
 
 public class Game {
 	private Money money = new Money(this);
-	//private Calculator calculator = new Calculator();
+	private Calculator calculator = new Calculator();
 	private GroceryList items;
 	private Image img;
     public Game(GroceryList algi){
