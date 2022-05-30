@@ -6,8 +6,8 @@ import java.math.BigDecimal;
 public class Calculator implements ActionListener{
     JFrame frame;
     JTextField textfield;
-    JButton[] functionButtons= new JButton[9];
     JButton[] x= new JButton[10];
+    JButton[] functionButtons= new JButton[9];
     JButton addButton, subButton, multButton, divButton;
     JButton decButton, equButton, delButton,clearButton,negButton;
     JPanel p;
@@ -18,8 +18,8 @@ public class Calculator implements ActionListener{
     private double num1=0;
     private double num2=0;
     private static double value=0;
-    
     char operator;
+    
     public double getNum1(){
         return num1;
     }
@@ -60,8 +60,8 @@ public class Calculator implements ActionListener{
             functionButtons[i].setFocusable(false);
             functionButtons[i].setBackground(Color.BLACK);
             functionButtons[i].setForeground(Color.BLACK);
-
         }
+
         //numbers
         for(int i=0; i<10; i++){
             x[i]= new JButton(String.valueOf(i));
@@ -70,7 +70,6 @@ public class Calculator implements ActionListener{
             x[i].setFocusable(false);
             x[i].setBackground(Color.BLACK);
             x[i].setForeground(Color.BLACK);
-
         }
 
         negButton.setBounds(50,430,100,50);
@@ -111,6 +110,10 @@ public class Calculator implements ActionListener{
         frame.add(textfield);
         frame.setVisible(true);
     }
+    public static double add(double x, double y){
+        double result=x+y;
+        return result;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -143,6 +146,29 @@ public class Calculator implements ActionListener{
             num1=Double.parseDouble(textfield.getText());
             operator='/';
             textfield.setText("");
+        }
+        //equals button
+        if(e.getSource()==equButton){
+            num2=Double.parseDouble(textfield.getText());
+            switch(operator){
+                case '+':
+                    value=Math.round((num1+num2)*100.0)/100.0;
+                    break;
+            
+                case '-':
+                    value=Math.round((num1-num2)*100.0)/100.0;
+                    break;
+
+                case '*':
+                    value=(num1*num2);
+                    break;
+
+                case'/':
+                    value=(num1/num2);
+                    break;
+            }
+            textfield.setText(String.valueOf(value));
+            num1=value;
         }
         //decimal button
         if(e.getSource()==decButton){
