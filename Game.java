@@ -58,10 +58,7 @@ public class Game {
 			public void actionPerformed(ActionEvent e){  
 				System.exit(0);
 			}  
-		});  
-			
-		
-
+		});  			
 	}
 
 	public void restartLose(){
@@ -81,7 +78,6 @@ public class Game {
 			}
 			
 		});
-		framey.dispose();
 	}
 
 	private ArrayList checkDollarBills() {
