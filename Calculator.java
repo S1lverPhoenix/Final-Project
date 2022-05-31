@@ -1,13 +1,13 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.math.BigDecimal;
 
-
-public class Calculator extends JFrame implements ActionListener{
+public class Calculator implements ActionListener{
     JFrame frame;
     JTextField textfield;
-    JButton[] numberButtons= new JButton[9];
     JButton[] x= new JButton[10];
+    JButton[] functionButtons= new JButton[9];
     JButton addButton, subButton, multButton, divButton;
     JButton decButton, equButton, delButton,clearButton,negButton;
     JPanel p;
@@ -17,9 +17,9 @@ public class Calculator extends JFrame implements ActionListener{
 
     private double num1=0;
     private double num2=0;
-    protected static double value=0;
-    
+    private static double value=0;
     char operator;
+    
     public double getNum1(){
         return num1;
     }
@@ -44,24 +44,24 @@ public class Calculator extends JFrame implements ActionListener{
         clearButton=new JButton("clear");
         negButton= new JButton("(-)");
 
-        numberButtons[0]=addButton;
-        numberButtons[1]=subButton;
-        numberButtons[2]=multButton;
-        numberButtons[3]=divButton;
-        numberButtons[4]=decButton;
-        numberButtons[5]=equButton;
-        numberButtons[6]=delButton;
-        numberButtons[7]=clearButton;
-        numberButtons[8]=negButton;
+        functionButtons[0]=addButton;
+        functionButtons[1]=subButton;
+        functionButtons[2]=multButton;
+        functionButtons[3]=divButton;
+        functionButtons[4]=decButton;
+        functionButtons[5]=equButton;
+        functionButtons[6]=delButton;
+        functionButtons[7]=clearButton;
+        functionButtons[8]=negButton;
 
         for(int i=0; i<9; i++){
-            numberButtons[i].addActionListener(this);
-            numberButtons[i].setFont(myfont);
-            numberButtons[i].setFocusable(false);
-            numberButtons[i].setBackground(Color.BLACK);
-            numberButtons[i].setForeground(Color.BLACK);
-
+            functionButtons[i].addActionListener(this);
+            functionButtons[i].setFont(myfont);
+            functionButtons[i].setFocusable(false);
+            functionButtons[i].setBackground(Color.BLACK);
+            functionButtons[i].setForeground(Color.BLACK);
         }
+
         //numbers
         for(int i=0; i<10; i++){
             x[i]= new JButton(String.valueOf(i));
@@ -70,7 +70,6 @@ public class Calculator extends JFrame implements ActionListener{
             x[i].setFocusable(false);
             x[i].setBackground(Color.BLACK);
             x[i].setForeground(Color.BLACK);
-
         }
 
         negButton.setBounds(50,430,100,50);
@@ -111,6 +110,10 @@ public class Calculator extends JFrame implements ActionListener{
         frame.add(textfield);
         frame.setVisible(true);
     }
+    public static double add(double x, double y){
+        double result=x+y;
+        return result;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -144,6 +147,29 @@ public class Calculator extends JFrame implements ActionListener{
             operator='/';
             textfield.setText("");
         }
+        //equals button
+        if(e.getSource()==equButton){
+            num2=Double.parseDouble(textfield.getText());
+            switch(operator){
+                case '+':
+                    value=Math.round((num1+num2)*100.0)/100.0;
+                    break;
+            
+                case '-':
+                    value=Math.round((num1-num2)*100.0)/100.0;
+                    break;
+
+                case '*':
+                    value=(num1*num2);
+                    break;
+
+                case'/':
+                    value=(num1/num2);
+                    break;
+            }
+            textfield.setText(String.valueOf(value));
+            num1=value;
+        }
         //decimal button
         if(e.getSource()==decButton){
             textfield.setText(textfield.getText().concat("."));
@@ -166,30 +192,7 @@ public class Calculator extends JFrame implements ActionListener{
                 textfield.setText(textfield.getText()+s.charAt(i));
             }
         }
-        //equals button
-        if(e.getSource()==equButton){
-            num2=Double.parseDouble(textfield.getText());
-            switch(operator){
-                case '+':
-                    value=num1+num2;
-                    break;
-            
-                case '-':
-                    value=Math.abs(num1-num2);
-                    break;
-
-                case '*':
-                    value=num1*num2;
-                    break;
-
-                case'/':
-                    value=num1/num2;
-                    break;
-            }
-            textfield.setText(String.valueOf(value));
-            num1=value;
-        }
-    }    
+    }
     public static double getTotal(){
        return value;
     }
