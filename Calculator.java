@@ -192,30 +192,7 @@ public class Calculator implements ActionListener{
                 textfield.setText(textfield.getText()+s.charAt(i));
             }
         }
-        //equals button
-        if(e.getSource()==equButton){
-            num2=Double.parseDouble(textfield.getText());
-            switch(operator){
-                case '+':
-                    value=Math.round((num1+num2)*100.0)/100.0;
-                    break;
-            
-                case '-':
-                    value=Math.round((num1-num2)*100.0)/100.0;
-                    break;
-
-                case '*':
-                    value=(num1*num2);
-                    break;
-
-                case'/':
-                    value=(num1/num2);
-                    break;
-            }
-            textfield.setText(String.valueOf(value));
-            num1=value;
-        }
-    }    
+    }
     public static double getTotal(){
        return value;
     }
